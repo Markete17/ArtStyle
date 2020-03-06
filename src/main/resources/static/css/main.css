@@ -1877,7 +1877,7 @@ h1, h2, h3, h4, h5, h6 {
 --------------------------------------------------------------*/
 #header {
   padding: 0px 0px 14px 0;
-  position: fixed;
+  position: absolute;
   left: 0;
   top: 0;
   right: 0;
