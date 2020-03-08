@@ -16,8 +16,8 @@ public class Painting {
 	
 	private String title;
 	private int year;
-	private float height;
-	private float width;
+	private double height;
+	private double width;
 	private int price;
 	
 	@ManyToOne
@@ -26,16 +26,13 @@ public class Painting {
 	@ManyToOne
 	private Client client;
 
-	public Painting(Long id, String title, int year, float height, float width, int price, Autor autor, Client client) {
+	public Painting(String title, int year, double height, double width, int price) {
 		super();
-		this.id = id;
 		this.title = title;
 		this.year = year;
 		this.height = height;
 		this.width = width;
 		this.price = price;
-		this.autor = autor;
-		this.client = client;
 	}
 
 	public Long getId() {
@@ -62,7 +59,7 @@ public class Painting {
 		this.year = year;
 	}
 
-	public float getHeight() {
+	public double getHeight() {
 		return height;
 	}
 
@@ -70,7 +67,7 @@ public class Painting {
 		this.height = height;
 	}
 
-	public float getWidth() {
+	public double getWidth() {
 		return width;
 	}
 

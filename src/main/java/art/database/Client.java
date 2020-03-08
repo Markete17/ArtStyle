@@ -26,9 +26,8 @@ public class Client {
 	@OneToMany(mappedBy = "client")
 	private List<Painting> paintings;
 	
-	public Client(Long id, String name, String surname, String nIF, String address, String email, String phone) {
+	public Client(String name, String surname, String nIF, String address, String email, String phone) {
 		super();
-		this.id = id;
 		this.name = name;
 		this.surname = surname;
 		NIF = nIF;

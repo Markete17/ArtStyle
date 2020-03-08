@@ -32,9 +32,8 @@ public class Autor {
 	@OneToMany(mappedBy = "autor")
 	private List<Painting> paintings;
 
-	public Autor(Long id, String name, String surname, String NIF, int year, String country, String address,
+	public Autor(String name, String surname, String NIF, int year, String country, String address,
 			String email, String phone) {
-		this.id = id;
 		this.name = name;
 		this.surname = surname;
 		this.NIF = NIF;
