@@ -106,20 +106,19 @@
 							</div>														
 						</div>
 						<div class="col-lg-8">
-							<form class="form-area " id="myForm" action="mail.php" method="post" class="contact-form text-right">
+							<form action="/client_success" class="form-area " id="myForm" action="mail.php" method="post" class="contact-form text-right">
 								<div class="row">	
 									<div class="col-lg-6 form-group">
 										<input name="name" placeholder="Enter your name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" class="common-input mb-20 form-control" required="" type="text">
-									
-										<input name="email" placeholder="Enter email address" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" class="common-input mb-20 form-control" required="" type="email">
-
-										<input name="subject" placeholder="Enter your subject" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your subject'" class="common-input mb-20 form-control" required="" type="text">
+										<input name="surname" placeholder="Enter your surname" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your surname'" class="common-input mb-20 form-control" required="" type="text">
+										<input name="NIF" type="text" placeholder="DNI" class="form-control" size="10"  maxlength="9" name="nif" pattern="(([X-Z]{1})([-]?)(\d{7})([-]?)([A-Z]{1}))|((\d{8})([-]?)([A-Z]{1}))" title="Enter your NIF" required>
 										<div class="mt-20 alert-msg" style="text-align: left;"></div>
 									</div>
 									<div class="col-lg-6 form-group">
-										<textarea class="common-textarea form-control" name="message" placeholder="Messege" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'" required=""></textarea>
-										<button class="primary-btn mt-20 text-white" style="float: right;">Send Message</button>
-																				
+									<input name="email" placeholder="Enter email address" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" class="common-input mb-20 form-control" required="" type="email">
+									<input name="address" placeholder="Enter your address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your address'" class="common-input mb-20 form-control" required="" type="text">	
+									<input name="phone" placeholder="Enter your phone" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your phone'" class="common-input mb-20 form-control" required="" type="text">
+									<input type="submit" class="primary-btn mt-20 text-white" value="Add client" style="float: right">									
 									</div>
 								</div>
 							</form>	
