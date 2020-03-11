@@ -21,6 +21,11 @@ public class PaintingController {
 		return "painting";
 	}
 	
+	@GetMapping("/")
+	public String loadHome() {
+		return "index";
+	}
+	
 	@PostMapping("/added_painting")
 	public String newPainting(Painting painting) {
 		paintingRepository.save(painting);
