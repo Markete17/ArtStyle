@@ -1,5 +1,7 @@
 package art.database;
 
+import java.sql.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,10 +17,13 @@ public class Painting {
 	private Long id;
 	
 	private String title;
+	private String description;
 	private int year;
 	private double height;
 	private double width;
 	private int price;
+	private Date date;
+	private String dateFormat;
 	
 	@ManyToOne
 	private Autor autor;
@@ -26,13 +31,48 @@ public class Painting {
 	@ManyToOne
 	private Client client;
 
-	public Painting(String title, int year, double height, double width, int price) {
+	public Painting(String title,String description, int year, double height, double width, int price, Date date) {
 		super();
 		this.title = title;
+		this.description=description;
 		this.year = year;
 		this.height = height;
 		this.width = width;
 		this.price = price;
+		this.date = date;
+		this.dateFormat=this.date.toString();
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getDateFormat() {
+		return dateFormat;
+	}
+
+	public void setDateFormat(String date) {
+		this.dateFormat = date;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public void setHeight(double height) {
+		this.height = height;
+	}
+
+	public void setWidth(double width) {
+		this.width = width;
 	}
 
 	public Long getId() {
