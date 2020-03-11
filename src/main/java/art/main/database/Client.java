@@ -1,4 +1,4 @@
-package art.database;
+package art.main.database;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -25,6 +25,8 @@ public class Client {
 	
 	@OneToMany(mappedBy = "client")
 	private List<Painting> paintings;
+	
+	public Client() {}
 	
 	public Client(String name, String surname, String nIF, String address, String email, String phone) {
 		super();

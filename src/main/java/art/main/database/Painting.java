@@ -1,4 +1,4 @@
-package art.database;
+package art.main.database;
 
 import java.sql.Date;
 
@@ -7,7 +7,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 
 @Entity
 public class Painting {
@@ -23,15 +22,17 @@ public class Painting {
 	private double width;
 	private int price;
 	private Date date;
-	private String dateFormat;
+	private boolean sold;
 	
 	@ManyToOne
-	private Autor autor;
+	private Artist autor;
 	
 	@ManyToOne
 	private Client client;
+	
+	public Painting() {}
 
-	public Painting(String title,String description, int year, double height, double width, int price, Date date) {
+	public Painting(String title,String description, int year, double height, double width, int price) {
 		super();
 		this.title = title;
 		this.description=description;
@@ -39,8 +40,7 @@ public class Painting {
 		this.height = height;
 		this.width = width;
 		this.price = price;
-		this.date = date;
-		this.dateFormat=this.date.toString();
+		this.sold = false;
 	}
 
 	public String getDescription() {
@@ -49,14 +49,6 @@ public class Painting {
 
 	public void setDescription(String description) {
 		this.description = description;
-	}
-
-	public String getDateFormat() {
-		return dateFormat;
-	}
-
-	public void setDateFormat(String date) {
-		this.dateFormat = date;
 	}
 
 	public Date getDate() {
@@ -122,12 +114,20 @@ public class Painting {
 	public void setPrice(int price) {
 		this.price = price;
 	}
+	
+	public boolean getSold() {
+		return sold;
+	}
+	
+	public void setSold(boolean sold) {
+		this.sold = sold;
+	}
 
-	public Autor getAutor() {
+	public Artist getAutor() {
 		return autor;
 	}
 
-	public void setAutor(Autor autor) {
+	public void setAutor(Artist autor) {
 		this.autor = autor;
 	}
 

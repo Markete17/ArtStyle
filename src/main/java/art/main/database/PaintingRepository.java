@@ -1,4 +1,4 @@
-package art.database;
+package art.main.database;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ public interface PaintingRepository extends JpaRepository<Painting, Long>{
 	List<Painting> OrderByPriceDesc();
 	
 	List<Painting> OrderByYearAsc();
-	List<Painting> OrderByYeareDesc();
+	List<Painting> OrderByYearDesc();
 	
 
 }

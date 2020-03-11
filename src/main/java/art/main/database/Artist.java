@@ -1,4 +1,4 @@
-package art.database;
+package art.main.database;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Autor {
+public class Artist {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,14 +25,13 @@ public class Autor {
 	private String address;
 	private String email;
 	private String phone;
-	
-	@OneToMany
-	private List<Client> clients;
-	
+		
 	@OneToMany(mappedBy = "autor")
 	private List<Painting> paintings;
+	
+	public Artist() {}
 
-	public Autor(String name, String surname, String NIF, int year, String country, String address,
+	public Artist(String name, String surname, String NIF, int year, String country, String address,
 			String email, String phone) {
 		this.name = name;
 		this.surname = surname;
@@ -42,7 +41,7 @@ public class Autor {
 		this.address = address;
 		this.email = email;
 		this.phone = phone;
-		this.clients=new LinkedList<>();
+		this.paintings = new LinkedList<>();
 	}
 	
 	public List<Painting> getPaintings() {
@@ -107,13 +106,5 @@ public class Autor {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	
-	public List<Client> getClients() {
-		return clients;
-	}
-	public void setClients(List<Client> clients) {
-		this.clients = clients;
-	}
-
-	
+		
 }

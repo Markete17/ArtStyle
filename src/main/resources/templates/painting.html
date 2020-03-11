@@ -23,18 +23,18 @@
 <!--
             CSS
             ============================================= -->
-<link rel="stylesheet" th:href="@{/css/linearicons.css}">
-<link rel="stylesheet" th:href="@{/css/font-awesome.min.css}">
-<link rel="stylesheet" th:href="@{/css/bootstrap.css}">
-<link rel="stylesheet" th:href="@{/css/magnific-popup.css}">
-<link rel="stylesheet" th:href="@{/css/nice-select.css}">
-<link rel="stylesheet" th:href="@{/css/animate.min.css}">
-<link rel="stylesheet" th:href="@{/css/owl.carousel.css}">
-<link rel="stylesheet" th:href="@{/css/main.css}">
+<link rel="stylesheet" href="../static/css/linearicons.css" th:href="@{/css/linearicons.css}">
+<link rel="stylesheet" href="../static/css/font-awesome.min.css" th:href="@{/css/font-awesome.min.css}">
+<link rel="stylesheet" href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}">
+<link rel="stylesheet" href="../static/css/magnific-popup.css" th:href="@{/css/magnific-popup.css}">
+<link rel="stylesheet" href="../static/css/nice-select.css" th:href="@{/css/nice-select.css}">
+<link rel="stylesheet" href="../static/css/animate.min.css" th:href="@{/css/animate.min.css}">
+<link rel="stylesheet" href="../static/css/owl.carousel.css" th:href="@{/css/owl.carousel.css}">
+<link rel="stylesheet" href="../static/css/main.css" th:href="@{/css/main.css}">
 </head>
 <body>
 	<!-- header -->
-	<header id="header" id="home">
+	<header id="header">
 		<br>
 		<div class="container">
 			<div class="row align-items-center justify-content-between d-flex">
@@ -62,10 +62,11 @@
 		<div class="container">
 			<div class="row d-flex align-items-center justify-content-center">
 				<div class="about-content col-lg-12">
-					<h1 class="text-white">Art Museum</h1>
+					<h1 class="text-white">All About Art</h1>
 					<p class="text-white link-nav">
-						<a href="index.html">Home </a>
-					</p>
+					<a href="index.html">Home </a>  
+					<span class="lnr lnr-arrow-right"></span>  
+					<a href="about.html"> About Us</a></p>
 				</div>
 			</div>
 		</div>
@@ -85,17 +86,12 @@
 				</div>
 			</div>
 			<div class="row">
-
-				<div th:each="paint: ${paintings}" class="col-lg-4 col-md-6 single-exhibition">
-
-					<div class="thumb">
-						<img class="img-fluid" src="img/pages/ex1.jpg" alt="">
-					</div>
-					<p th:text="${painting.dateFormat}" class="date"></p>
-					<a th:text="${painting.name}" href="#"><h4></h4></a>
-					<p th:text="${painting.description}"></p>
+				<div th:each="painting : ${paintings}" class="col-lg-4 col-md-6 single-exhibition">
+					<span th:text="${painting.title}"></span><br>
+					<span th:text="${painting.date}" class="date"></span><br>
+					<span class="justify-content" th:text="${painting.description}"></span>
 					<div class="meta-bottom d-flex justify-content-start">
-						<p th:text="${painting.price}" class="price"></p>
+						<p th:text="${painting.price} + ' €'" class="price"></p>
 					</div>
 				</div>
 			</div>

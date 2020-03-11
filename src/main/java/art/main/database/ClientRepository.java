@@ -1,4 +1,4 @@
-package art.database;
+package art.main.database;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

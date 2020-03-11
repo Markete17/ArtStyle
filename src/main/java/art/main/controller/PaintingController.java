@@ -1,15 +1,13 @@
-package art.controller;
-
-import java.util.List;
+package art.main.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
-import art.database.*;
+import art.main.database.Painting;
+import art.main.database.PaintingRepository;
 
 @Controller
 public class PaintingController {
@@ -18,15 +16,15 @@ public class PaintingController {
 	private PaintingRepository paintingRepository;
 	
 	@GetMapping("/paintings")
-	public String loadPage(Model model) {
+	public String loadPaintings(Model model) {
 		model.addAttribute("paintings",paintingRepository.findAll());
 		return "painting";
 	}
 	
-	@PostMapping("/paint_success")
+	@PostMapping("/added_painting")
 	public String newPainting(Painting painting) {
 		paintingRepository.save(painting);
-		return "paintingform";
+		return "painting_form";
 	}
 
 }
