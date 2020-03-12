@@ -5,9 +5,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import art.main.database.Artist;
 import art.main.database.ArtistRepository;
+import art.main.database.Client;
 
 @Controller
 public class ArtistController {
@@ -25,6 +27,37 @@ public class ArtistController {
 	public String newPainting(Artist artist) {
 		artistRepository.save(artist);
 		return "artist_form";
+	}
+	
+	@GetMapping("/artists/")
+	public String showClient(Model model,@RequestParam Long id) {
+		Artist artist=artistRepository.findById(id).get();
+		model.addAttribute("artist",artist);
+		return "artist_profile";
+
+	}
+	
+	@PostMapping("/artist_update/")
+	public String updateArtist(Model model,Artist artist,@RequestParam Long id) {
+			
+		update(artist,id);
+		
+		return "redirect:/artists";
+		
+	}
+	
+	private void update(Artist artist,Long id) {
+		
+		Artist a=artistRepository.findById(id).get();
+		a.setAddress(artist.getAddress());
+		a.setCountry(artist.getCountry());
+		a.setEmail(artist.getEmail());
+		a.setName(artist.getName());
+		a.setNIF(artist.getNIF());
+		a.setPhone(artist.getPhone());
+		a.setSurname(artist.getSurname());
+		a.setYear(artist.getYear());
+		artistRepository.save(a);	
 	}
 	
 }

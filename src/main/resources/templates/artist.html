@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zxx" class="no-js">
+<html lang="zxx" class="no-js" xmlns:th="http://www.thymeleaf.org">
 <head>
 <!-- Mobile Specific Meta -->
 <meta name="viewport"
@@ -23,17 +23,17 @@
 <!--
             CSS
             ============================================= -->
-<link rel="stylesheet" href="/css/linearicons.css">
-<link rel="stylesheet" href="/css/font-awesome.min.css">
-<link rel="stylesheet" href="/css/bootstrap.css">
-<link rel="stylesheet" href="/css/magnific-popup.css">
-<link rel="stylesheet" href="/css/nice-select.css">
-<link rel="stylesheet" href="/css/animate.min.css">
-<link rel="stylesheet" href="/css/owl.carousel.css">
-<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="../static/css/linearicons.css" th:href="@{/css/linearicons.css}">
+<link rel="stylesheet" href="../static/css/font-awesome.min.css" th:href="@{/css/font-awesome.min.css}">
+<link rel="stylesheet" href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}">
+<link rel="stylesheet" href="../static/css/magnific-popup.css" th:href="@{/css/magnific-popup.css}">
+<link rel="stylesheet" href="../static/css/nice-select.css" th:href="@{/css/nice-select.css}">
+<link rel="stylesheet" href="../static/css/animate.min.css" th:href="@{/css/animate.min.css}">
+<link rel="stylesheet" href="../static/css/owl.carousel.css" th:href="@{/css/owl.carousel.css}">
+<link rel="stylesheet" href="../static/css/main.css" th:href="@{/css/main.css}">
 </head>
 <body>
-<!-- header -->
+	<!-- header -->
 	<header id="header">
 		<br>
 		<div class="container">
@@ -73,95 +73,38 @@
 	<!-- End banner Area -->
 
 
-	<!-- Start upcoming-exibition Area -->
+		<!-- Start upcoming-exibition Area -->
 	<section class="upcoming-exibition-area section-gap">
 		<div class="container">
 			<div class="row d-flex justify-content-center">
 				<div class="menu-content pb-70 col-lg-8">
 					<div class="title text-center">
-						<h1 class="mb-10">Art clients</h1>
-						<p>Sorted by all clients</p>
+						<h1 class="mb-10">Artists</h1>
+						<p>Sorted by all artists</p>
 					</div>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-lg-4 col-md-6 single-exhibition">
+				<div th:each="artist: ${artists}" class="col-lg-4 col-md-6 single-exhibition">
 					<div class="thumb">
 						<img class="img-fluid" src="img/pages/ex1.jpg" alt="">
 					</div>
-					<p class="date">10 Jan 2018</p>
-					<a href="#"><h4>Blind Artist Draws Colorful Paintings</h4></a>
-					<p>Lorem ipsum dolor sit amet, consec teturadip isicing elit,
-						sed do eiusmod tempor.</p>
+					<a th:text="${artist.name} +' '" href="#"><h4></h4></a><a href="#" th:text="${artist.surname}" ></a>
+					<p th:text="${artist.year} +' '" href="#"><h4></h4></p><p href="#" th:text="${artist.country}" ></p>
+					<p th:text="${artist.email}"></p>
+					
 					<div class="meta-bottom d-flex justify-content-start">
-						<p class="price">$45.00</p>
+					
+						<p th:text="${artist.phone}" class="price"></p>
 					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 single-exhibition">
-					<div class="thumb">
-						<a href="blog-single.html"><img class="img-fluid" src="img/pages/ex2.jpg" alt=""></a>
-					</div>
-					<p class="date">10 Jan 2018</p>
-					<a href="#"><h4>Blind Artist Draws Colorful Paintings</h4></a>
-					<p>Lorem ipsum dolor sit amet, consec teturadip isicing elit,
-						sed do eiusmod tempor.</p>
-					<div class="meta-bottom d-flex justify-content-start">
-						<p class="price">$45.00</p>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 single-exhibition">
-					<div class="thumb">
-						<img class="img-fluid" src="img/pages/ex3.jpg" alt="">
-					</div>
-					<p class="date">10 Jan 2018</p>
-					<a href="#"><h4>Blind Artist Draws Colorful Paintings</h4></a>
-					<p>Lorem ipsum dolor sit amet, consec teturadip isicing elit,
-						sed do eiusmod tempor.</p>
-					<div class="meta-bottom d-flex justify-content-start">
-						<p class="price">$45.00</p>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 single-exhibition">
-					<div class="thumb">
-						<img class="img-fluid" src="img/pages/ex4.jpg" alt="">
-					</div>
-					<p class="date">10 Jan 2018</p>
-					<a href="#"><h4>Blind Artist Draws Colorful Paintings</h4></a>
-					<p>Lorem ipsum dolor sit amet, consec teturadip isicing elit,
-						sed do eiusmod tempor.</p>
-					<div class="meta-bottom d-flex justify-content-start">
-						<p class="price">$45.00</p>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 single-exhibition">
-					<div class="thumb">
-						<img class="img-fluid" src="img/pages/ex5.jpg" alt="">
-					</div>
-					<p class="date">10 Jan 2018</p>
-					<a href="#"><h4>Blind Artist Draws Colorful Paintings</h4></a>
-					<p>Lorem ipsum dolor sit amet, consec teturadip isicing elit,
-						sed do eiusmod tempor.</p>
-					<div class="meta-bottom d-flex justify-content-start">
-						<p class="price">$45.00</p>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 single-exhibition">
-					<div class="thumb">
-						<img class="img-fluid" src="img/pages/ex6.jpg" alt="">
-					</div>
-					<p class="date">10 Jan 2018</p>
-					<a href="#"><h4>Blind Artist Draws Colorful Paintings</h4></a>
-					<p>Lorem ipsum dolor sit amet, consec teturadip isicing elit,
-						sed do eiusmod tempor.</p>
-					<div class="meta-bottom d-flex justify-content-start">
-						<p class="price">$45.00</p>
-					</div>
+					<a th:href="@{artists/(id=${artist.id})}" type="submit" class="primary-btn text-white" style="float: left">Edit</a>
 				</div>
 			</div>
+			
 		</div>
 	</section>
 	<!-- End upcoming-exibition Area -->
-
+	
 	<!-- start footer Area -->
 	<footer class="footer-area pt-5 w-1 bg-dark">
 		<div class="container pb-2">
