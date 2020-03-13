@@ -67,32 +67,32 @@ public class DataInsert implements CommandLineRunner {
 		
 		Painting p0 = new Painting("Laurales", "Sobre un fondo de paisaje vaporoso, donde se resalta la figura de esta mujer," +
 				" cuya enigmática sonrisa constituye lo más atractivo del cuadro, consiguió su más alta aspiración: plasmar el" +
-				"alma humana.", 1990, 26.88, 30.52, 120);
+				"alma humana.", d0.getYear(), 26.88, 30.52, 120);
 		p0.setDate(d0);
 		p0.setSold(true);
 		c0.getPaintings().add(p0);
 		Painting p1 = new Painting("Lago verde", " Sus colores estridentes, sus rotundas pinceladas y sus retorcidos trazos lo" +
-				" convierten en una de las más realistas expresiones de la angustia y del dolor del ser humano.", 1990, 60.55, 60.45, 120);
+				" convierten en una de las más realistas expresiones de la angustia y del dolor del ser humano.", d1.getYear(), 60.55, 60.45, 120);
 		p1.setDate(d1);
 		p1.setSold(true);
 		c1.getPaintings().add(p1);
 		Painting p7 = new Painting("Girasoles", "Las pinturas muestran girasoles en todas las etapas de su vida, desde plenamente en "
-				+ " flor hasta que se marchitan.", 2010, 20.75, 100.65, 1200);
+				+ " flor hasta que se marchitan.", d2.getYear(), 20.75, 100.65, 1200);
 		c2.getPaintings().add(p7);
 		p7.setSold(true);
 		p7.setDate(d2);
-		Painting p2 = new Painting("Caballos", "Una serie de caballos en familia mirando la montaña que tienen a su izquierda.", 1999, 56.75, 160.45, 150);
+		Painting p2 = new Painting("Caballos", "Una serie de caballos en familia mirando la montaña que tienen a su izquierda.", d3.getYear(), 56.75, 160.45, 150);
 		c3.getPaintings().add(p2);
 		p2.setSold(true);
 		p2.setDate(d3);
 		Painting p8 = new Painting("Creative paint", "Los relojes, como la memoria, se han reblandecido por el paso del tiempo." +
-				" Son relojes perfectamente verosímiles que siguen marcando la hora (supuestamente en torno a la seis de la tarde). ", 2011, 60.75, 70.57, 520);
+				" Son relojes perfectamente verosímiles que siguen marcando la hora (supuestamente en torno a la seis de la tarde). ", d4.getYear(), 60.75, 70.57, 520);
 		c4.getPaintings().add(p8);
 		p8.setSold(true);
 		p8.setDate(d4);
 		Painting p3 = new Painting("The mountains", "Y ahí estaba frente a ella: sintiendo su cálida mirada, sus ebúrneas manos de seda" +
 				" sosteniendo entre las mías, toscas y burdas, aquel rosario de cristalinas y verdes cuentas, engarzadas" +
-				" con dorados y brillantes.", 1990, 57.75, 15.45, 10);
+				" con dorados y brillantes.", d5.getYear(), 57.75, 15.45, 10);
 		c5.getPaintings().add(p3);
 		p3.setSold(true);
 		p3.setDate(d5);
