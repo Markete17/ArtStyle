@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import art.main.database.Artist;
@@ -44,6 +45,25 @@ public class ArtistController {
 		
 		return "redirect:/artists";
 		
+	}
+	
+	@RequestMapping("/artistSortBy")
+	public String sortBy(Model model,@RequestParam String value) {
+		switch(value) {
+		case "Name":
+			model.addAttribute("artists", this.artistRepository.OrderByName());
+			break;
+		case "Surname":
+			model.addAttribute("artists", this.artistRepository.OrderBySurname());
+			break;
+		case "Year":
+			model.addAttribute("artists", this.artistRepository.OrderByYear());
+			break;
+		case "Country":
+			model.addAttribute("artists", this.artistRepository.OrderByCountry());
+			break;
+		}
+		return "artist";
 	}
 	
 	private void update(Artist artist,Long id) {
