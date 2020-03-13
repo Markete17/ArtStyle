@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ArtistRepository extends JpaRepository<Artist, Long>{
 	
+	Artist findByEmail(String email);
 	List<Artist> OrderByName();
 	List<Artist> OrderBySurname();
 	List<Artist> OrderByYear();

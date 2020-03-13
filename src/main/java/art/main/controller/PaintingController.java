@@ -11,7 +11,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-
+import art.main.database.Artist;
+import art.main.database.ArtistRepository;
+import art.main.database.Client;
+import art.main.database.ClientRepository;
 import art.main.database.Painting;
 import art.main.database.PaintingRepository;
 import art.main.database.PaintingService;
@@ -23,11 +26,19 @@ public class PaintingController {
 	private PaintingRepository paintingRepository;
 	
 	@Autowired
+	private ClientRepository clientRepository;
+	
+	@Autowired
+	private ArtistRepository artistRepository;
+	
+	@Autowired
 	private PaintingService paintingService;
 	
 	@GetMapping("/paintings")
 	public String loadPaintings(Model model) {
 		model.addAttribute("paintings",paintingRepository.findAll());
+		model.addAttribute("a",artistRepository);
+		
 		return "painting";
 	}
 	
@@ -66,10 +77,50 @@ public class PaintingController {
 		return "painting";
 	}
 	
+	@GetMapping("/paintings/")
+	public String showPainting(Model model,@RequestParam Long id) {
+		Painting p=paintingRepository.findById(id).get();
+		model.addAttribute("painting",p);
+		return "painting_profile";
+		
+	}
+	
+	@PostMapping("/painting_update/")
+	public String updatePainting(Model model,@RequestParam Long id,Painting painting) {
+		Painting p=this.paintingRepository.findById(id).get();
+		update(p,painting);
+		return "redirect:/paintings";
+	}
+	
+	@GetMapping("/painting_buy/")
+	public String buyPainting(Model model,@RequestParam Long id) {
+		//Client c=clientRepository.findByEmail(email);
+		Painting p=paintingRepository.findById(id).get();
+		p.setSold(true);
+		//p.setClient(c);
+		paintingRepository.save(p);
+		return "redirect:/paintings";
+	}
+	
+	private void update(Painting p, Painting painting) {
+		p.setDate(painting.getDate());
+		p.setDescription(painting.getDescription());
+		p.setHeight(painting.getHeight());
+		p.setWidth(painting.getWidth());
+		p.setPrice(painting.getPrice());
+		p.setTitle(painting.getTitle());
+		p.setYear(painting.getYear());
+		this.paintingRepository.save(p);
+		
+	}
+
+
 	@PostMapping("/added_painting")
-	public String newPainting(Painting painting) {
+	public String newPainting(Painting painting,@RequestParam String email) {
+		Artist a=artistRepository.findByEmail(email);
+		painting.setAutor(a);
 		paintingRepository.save(painting);
-		return "painting_form";
+		return "redirect:/paintings";
 	}
 
 }

@@ -82,47 +82,32 @@
 									<span class="lnr lnr-home"></span>
 								</div>
 								<div class="contact-details">
-									<h5 th:text="${client.address}"></h5>
+									<h5 th:text="${painting.title}"></h5><p align="justify" th:text="${painting.description}"></p>
 								</div>
-							</div>
-							<div class="single-contact-address d-flex flex-row">
-								<div class="icon">
-									<span class="lnr lnr-phone-handset"></span>
-								</div>
-								<div class="contact-details">
-									<h5 th:text="${client.phone}"></h5>
-								</div>
-							</div>
-							<div class="single-contact-address d-flex flex-row">
-								<div class="icon">
-									<span class="lnr lnr-envelope"></span>
-								</div>
-								<div class="contact-details">
-									<h5 th:text="${client.email}"></h5>
-									<p>Send us your query anytime!</p>
-								</div>
-							</div>														
+							</div>													
 						</div>
 						<div class="col-lg-8">
-							<form th:action="@{/client_update/(id=${client.id})}" class="form-area" id="myForm" method="post">
+							<form th:action="@{/painting_update/(id=${painting.id})}" class="form-area" id="myForm" method="post">
 								<div class="row">	
 									<div class="col-lg-6 form-group">
-										<label>Name</label>
-										<input name="name" class="common-input mb-20 form-control" th:attr="value = ${client.name}" required="" type="text">
-										<label>Email</label>
-										<input name="email" th:attr="value = ${client.email}" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" class="common-input mb-20 form-control" required="" type="email">
-										<label>NIF</label>
-										<input name="NIF" class="common-input mb-20 form-control" th:attr="value = ${client.NIF}" required="" type="text">
+										<label>Title</label>
+										<input name="title" class="common-input mb-20 form-control" th:attr="value = ${painting.title}" required type="text">
+										<label>Date</label>
+										<input name="date" class="common-input mb-20 form-control" th:attr="value = ${painting.date}" required type="date">
+										<label>Year</label>
+										<input name="year" min="1900" max="2020" class="common-input mb-20 form-control" th:attr="value = ${painting.year}" required type="number">
+										<label>Description</label>
+										<textarea name="description" class="common-input mb-20 form-control" th:text="${painting.description}" required type="text"> </textarea>
 										<div class="mt-20 alert-msg" style="text-align: left;"></div>
 									</div>
 									<div class="col-lg-6 form-group">
-									<label>Surname</label>
-									<input name="surname" class="common-input mb-20 form-control" th:attr="value = ${client.surname}" required="" type="text">
-									<label>Address</label>
-									<input name="address" th:attr="value = ${client.address}" class="common-input mb-20 form-control" required="" type="text">	
-									<label>Phone</label>
-									<input name="phone" th:attr="value = ${client.phone}" class="common-input mb-20 form-control" required="" type="text">
-									<input type="submit" class="primary-btn mt-20 text-white" value="Edit client" style="float: right">									
+									<label>Height(cm)</label>
+									<input name="height" min="0" step='0.01' class="common-input mb-20 form-control" th:attr="value = ${painting.height}" required type="number">
+									<label>Width(cm)</label>
+									<input name="width" min="0" step='0.01' th:attr="value = ${painting.width}" class="common-input mb-20 form-control" required type="number">
+									<label>Price (€)</label>
+									<input name="price" th:attr="value=${painting.price}" class="common-input mb-20 form-control" required type="number">
+									<input type="submit" class="primary-btn mt-20 text-white" value="Edit painting" style="float: right">									
 									</div>
 								</div>
 							</form>	

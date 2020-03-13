@@ -134,12 +134,20 @@
 			<div class="row">
 				<div th:each="painting : ${paintings}"
 					class="col-lg-4 col-md-6 single-exhibition">
-					<span th:text="${painting.title}"></span><br> <span
+					<span th:text="${painting.title}"></span></span><br> <span
 						th:text="${painting.date}" class="date"></span><br> <span
 						class="justify-content" th:text="${painting.description}"></span>
 					<div class="meta-bottom d-flex justify-content-start">
 						<p th:text="${painting.price} + ' €'" class="price"></p>
 					</div>
+					<a th:href="@{paintings/(id=${painting.id})}" type="submit" class="primary-btn text-white" style="float: left">Edit</a>
+					<button type="button" class="btn btn-info" th:if="${painting.sold}" disabled>Sold</button>
+					<br>
+					<div th:unless="${painting.sold}">
+					<br>
+					<a type="submit" class="btn btn-info" th:href="@{painting_buy/(id=${painting.id})}" >Buy</a>
+					</div>
+
 				</div>
 			</div>
 		</div>

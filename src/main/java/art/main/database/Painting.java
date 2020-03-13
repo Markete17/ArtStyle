@@ -43,6 +43,16 @@ public class Painting {
 		this.sold = false;
 	}
 
+	
+
+	public double getHeight() {
+		return height;
+	}
+
+	public double getWidth() {
+		return width;
+	}
+
 	public String getDescription() {
 		return description;
 	}
@@ -89,22 +99,6 @@ public class Painting {
 
 	public void setYear(int year) {
 		this.year = year;
-	}
-
-	public double getHeight() {
-		return height;
-	}
-
-	public void setHeight(float height) {
-		this.height = height;
-	}
-
-	public double getWidth() {
-		return width;
-	}
-
-	public void setWidth(float width) {
-		this.width = width;
 	}
 
 	public int getPrice() {
