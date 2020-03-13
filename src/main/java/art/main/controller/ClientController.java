@@ -12,12 +12,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import art.main.database.Client;
 import art.main.database.ClientRepository;
+import art.main.database.ClientService;
 
 @Controller
 public class ClientController {
 
 	@Autowired
 	private ClientRepository clientRepository;
+	
+	@Autowired
+	private ClientService clientService;
 	
 	@GetMapping("/clients")
 	public String loadPaintings(Model model) {
@@ -55,6 +59,7 @@ public class ClientController {
 			model.addAttribute("clients", this.clientRepository.OrderBySurnameAsc());
 			break;
 		}
+		model.addAttribute("choice",value);
 		return "client";
 	}
 	
@@ -65,6 +70,14 @@ public class ClientController {
 		
 		return "redirect:/clients";
 		
+	}
+	
+	@RequestMapping("/filterClient")
+	public String filterPaintings(Model model, @RequestParam(defaultValue ="") String name, @RequestParam(defaultValue = "") String surname) {
+		model.addAttribute("name", name);
+		model.addAttribute("surname", surname);
+		model.addAttribute("clients",this.clientService.filterBy(name,surname));	
+		return "client";
 	}
 	
 	private void update(Client client,Long id) {
