@@ -77,6 +77,17 @@
 	<section class="upcoming-exibition-area section-gap">
 		<div class="container">
 			<div class="row d-flex justify-content-center">
+			<div class="sorting">
+					<form id="sort" action="/clientSortBy" method="post">
+						<select onchange="this.form.submit()" name="value">
+							<option value="Default">Orden predeterminado</option>
+							<option value="NameDesc">Nombre A-Z</option>
+							<option value="NameAsc">Nombre Z-A</option>
+							<option value="SurnameDesc">Apellido A-Z</option>
+							<option value="SurnameAsc">Apellido Z-A</option>
+						</select> <!-- <option value="YearDesc">Año mayor - menor</option> -->
+					</form>
+				</div>
 				<div class="menu-content pb-70 col-lg-8">
 					<div class="title text-center">
 						<h1 class="mb-10">Art clients</h1>

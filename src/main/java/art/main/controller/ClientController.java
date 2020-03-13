@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import art.main.database.Client;
@@ -36,6 +37,25 @@ public class ClientController {
 		model.addAttribute("client",client);
 		return "client_profile";
 		
+	}
+	
+	@RequestMapping("/clientSortBy")
+	public String sortBy(Model model,@RequestParam String value) {
+		switch(value) {
+		case "NameAsc":
+			model.addAttribute("clients", this.clientRepository.OrderByNameDesc());
+			break;
+		case "NameDesc":
+			model.addAttribute("clients", this.clientRepository.OrderByNameAsc());
+			break;
+		case "SurnameAsc":
+			model.addAttribute("clients", this.clientRepository.OrderBySurnameDesc());
+			break;
+		case "SurnameDesc":
+			model.addAttribute("clients", this.clientRepository.OrderBySurnameAsc());
+			break;
+		}
+		return "client";
 	}
 	
 	@PostMapping("/client_update/")
