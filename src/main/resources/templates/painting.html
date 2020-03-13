@@ -84,10 +84,15 @@
 	<!-- Start upcoming-exibition Area -->
 	<section class="upcoming-exibition-area section-gap">
 		<div class="container">
-			<div class="row d-flex justify-content-center">
-				<div class="sorting">
+		<div class="menu-content pb-70 col-lg-15">
+					<div class="title text-center">
+						<h1 class="mb-10">Art posts</h1>
+						<p>Sorted by all posts</p>
+					</div>
+				</div>
+				<div class="sorting w-25">
 					<form id="sort" action="/productSortBy" method="post">
-						<select onchange="this.form.submit()" name="value">
+						<select onchange="this.form.submit()" name="value" class="custom-select">
 							<option value="Default">Orden predeterminado</option>
 							<option value="PriceDesc">Precio mayor - menor</option>
 							<option value="PriceAsc">Precio menor - mayor</option>
@@ -97,40 +102,38 @@
 						<!-- <option value="YearDesc">Año mayor - menor</option> -->
 					</form>
 				</div>
-				<div class="menu-content pb-70 col-lg-8">
-					<div class="title text-center">
-						<h1 class="mb-10">Art posts</h1>
-						<p>Sorted by all posts</p>
-					</div>
-				</div>
-			</div>
+				<br>
+				<br>
+			<div class="card">
+					<div class="container">
 			<form id="filter" action="/filterPainting" method="post">
-				<div class="common-filter">
+			<br>
+			<div class="row">
+				<div class="col-sm">
 					<div class="head">Tama&ntilde;o</div>
-					<ul>
-						<li class="filter-list w-50">Máximo de ancho<input class="form-control"
-							type="number" id="width" name="width" th:attr = "value = ${width}"></li>
-						<li class="filter-list w-50">Máximo de alto<input class="form-control"
-							type="number" id="height" name="height" th:attr = "value = ${height}"></li>
-					</ul>
+						<div class="filter-list w-50">Máximo de ancho<input class="form-control"
+							type="number" id="width" name="width" th:attr = "value = ${width}"></div>
+						<div class="filter-list w-50">Máximo de alto<input class="form-control"
+							type="number" id="height" name="height" th:attr = "value = ${height}"></div>
 				</div>
-				<div class="common-filter">
+				<div class="col-sm">
 					<div class="head">Precio</div>
-					<ul>
-						<li class="filter-list w-50">Mínimo<input type="number"
-							class="form-control" min="0" name="min_price" th:attr = "value = ${min_price}" /></li>
-						<li class="filter-list w-50">Máximo<input type="number"
-							class="form-control" min="0" name="max_price" th:attr = "value = ${max_price}" /></li>
-					</ul>
+						<div class="filter-list w-50">Mínimo<input type="number"
+							class="form-control" min="0" name="min_price" th:attr = "value = ${min_price}" /></div>
+						<div class="filter-list w-50">Máximo<input type="number"
+							class="form-control" min="0" name="max_price" th:attr = "value = ${max_price}" /></div>
 				</div>
-				<div class="common-filter">
-					<div class="head">Búsqueda</div>
-					<ul>
-						<li class="filter-list"><button type="submit"
-								class="add-painting" form="filter">Aplicar</button></li>
-					</ul>
 				</div>
+								<br>
+				<div class="filter">Búsqueda
+						<div class="filter-list"><button type="submit"
+								class="add-painting primary-btn text-white" form="filter">Aplicar</button></div></div>
+								<br>
 			</form>
+			</div>
+			</div>
+			<br>
+			<br>
 			<div class="row">
 				<div th:each="painting : ${paintings}"
 					class="col-lg-4 col-md-6 single-exhibition">
@@ -140,12 +143,12 @@
 					<div class="meta-bottom d-flex justify-content-start">
 						<p th:text="${painting.price} + ' €'" class="price"></p>
 					</div>
+					<div class="row">
 					<a th:href="@{paintings/(id=${painting.id})}" type="submit" class="primary-btn text-white" style="float: left">Edit</a>
 					<button type="button" class="btn btn-info" th:if="${painting.sold}" disabled>Sold</button>
-					<br>
 					<div th:unless="${painting.sold}">
-					<br>
 					<a type="submit" class="btn btn-info" th:href="@{painting_buy/(id=${painting.id})}" >Buy</a>
+					</div>
 					</div>
 
 				</div>

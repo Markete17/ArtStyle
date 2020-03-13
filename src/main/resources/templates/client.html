@@ -84,10 +84,15 @@
 	<!-- Start upcoming-exibition Area -->
 	<section class="upcoming-exibition-area section-gap">
 		<div class="container">
-			<div class="row d-flex justify-content-center">
-				<div class="sorting">
+		<div class="menu-content pb-70 col-lg-15">
+					<div class="title text-center">
+						<h1 class="mb-10">Art clients</h1>
+						<p>Sorted by all clients</p>
+					</div>
+				</div>
+				<div class="sorting w-25">
 					<form id="sort" action="/clientSortBy" method="post">
-						<select onchange="this.form.submit()" name="value">
+						<select onchange="this.form.submit()" name="value" class="custom-select">
 							<option value="Default">Orden predeterminado</option>
 							<option value="NameDesc">Nombre A-Z</option>
 							<option value="NameAsc">Nombre Z-A</option>
@@ -97,37 +102,39 @@
 						<!-- <option value="YearDesc">Año mayor - menor</option> -->
 					</form>
 				</div>
-				<div class="menu-content pb-70 col-lg-8">
-					<div class="title text-center">
-						<h1 class="mb-10">Art clients</h1>
-						<p>Sorted by all clients</p>
-					</div>
-				</div>
+				<br>
+				<br>
+			<div class="card">
+					<div class="container">
 				<!--  ARREGLAR LA ESTetICA DE ESTE TROZOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO -->
 				<form id="filter" action="/filterClient" method="post">
 
 					<div class="common-filter">
-
+				<br>
 						<div class="head">Filtrar por:</div>
-						<ul>
-							<li class="filter-list w-50">Nombre<input
+											<br>
+						<div class="row">
+							<div class="col-sm">Nombre<input
 								class="form-control" type="text" id="name" name="name"
-								th:attr="value = ${name}"></li>
-							<li class="filter-list w-50">Apellido<input
+								th:attr="value = ${name}"></div>
+							<div class="col-sm">Apellido<input
 								class="form-control" type="text" id="surname" name="surname"
-								th:attr="value = ${surname}"></li>
-						</ul>
+								th:attr="value = ${surname}"></div>
+						</div>
 					</div>
+										<br>
 					<div class="common-filter">
 						<div class="head">Búsqueda</div>
 						<ul>
 							<li class="filter-list"><button type="submit"
-									class="add-painting" form="filter">Aplicar</button></li>
+									class="add-painting primary-btn text-white" form="filter">Aplicar</button></li>
 						</ul>
 					</div>
+										<br>
 				</form>
+							</div>
+		</div>
 				<!-- HASTA AQUI LLEGA EL DESTROZOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO -->
-			</div>
 			<div class="row">
 				<div th:each="client: ${clients}"
 					class="col-lg-4 col-md-6 single-exhibition">

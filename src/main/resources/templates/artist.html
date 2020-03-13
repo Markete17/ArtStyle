@@ -84,10 +84,15 @@
 	<!-- Start upcoming-exibition Area -->
 	<section class="upcoming-exibition-area section-gap">
 		<div class="container">
-			<div class="row d-flex justify-content-center">
-				<div class="sorting">
+			<div class="menu-content pb-70 col-lg-15">
+					<div class="title text-center">
+						<h1 class="mb-10">Artists</h1>
+						<p>Sorted by all artists</p>
+					</div>
+				</div>
+				<div class="sorting w-25">
 					<form id="sort" action="/artistSortBy" method="post">
-						<select onchange="this.form.submit()" name="value">
+						<select onchange="this.form.submit()" name="value" class="custom-select">
 							<option value="Default">Orden predeterminado</option>
 							<option value="Name">Nombre</option>
 							<option value="Surname">Apellido</option>
@@ -97,40 +102,40 @@
 						<!-- <option value="YearDesc">Año mayor - menor</option> -->
 					</form>
 				</div>
-				<div class="menu-content pb-70 col-lg-8">
-					<div class="title text-center">
-						<h1 class="mb-10">Artists</h1>
-						<p>Sorted by all artists</p>
-					</div>
-				</div>
 				<!--  ARREGLAR LA ESTetICA DE ESTE TROZOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO -->
-				<form id="filter" action="/filterArtist" method="post">
-
-					<div class="common-filter">
-
+				<br>
+				<br>
+				<div class="card">
+					<div class="container">
+						<form id="filter" action="/filterArtist" method="post">
+						<br>
 						<div class="head">Filtrar por:</div>
-						<ul>
-							<li class="filter-list w-50">Nombre<input
+						<br>
+							<div class="row">
+							<div class="col-sm">Nombre<input
 								class="form-control" type="text" id="name" name="name"
-								th:attr="value = ${name}"></li>
-							<li class="filter-list w-50">Apellido<input
+								th:attr="value = ${name}"></div>
+							<div class="col-sm">Apellido<input
 								class="form-control" type="text" id="surname" name="surname"
-								th:attr="value = ${surname}"></li>
-							<li class="filter-list w-50">País<input
+								th:attr="value = ${surname}"></div>
+							<div class="col-sm">País<input
 								class="form-control" type="text" id="country" name="country"
-								th:attr="value = ${country}"></li>
-						</ul>
-					</div>
+								th:attr="value = ${country}"></div>
+							</div>
+					<br>
 					<div class="common-filter">
 						<div class="head">Búsqueda</div>
 						<ul>
 							<li class="filter-list"><button type="submit"
-									class="add-painting" form="filter">Aplicar</button></li>
+									class="add-painting primary-btn text-white" form="filter">Aplicar</button></li>
 						</ul>
 					</div>
+					<br>
 				</form>
-				<!-- HASTA AQUI LLEGA EL DESTROZOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO -->
 			</div>
+		</div>
+		<br><br>
+				<!-- HASTA AQUI LLEGA EL DESTROZOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO -->
 			<div class="row">
 				<div th:each="artist: ${artists}"
 					class="col-lg-4 col-md-6 single-exhibition">
