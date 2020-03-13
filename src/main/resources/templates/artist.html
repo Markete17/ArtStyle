@@ -85,57 +85,59 @@
 	<section class="upcoming-exibition-area section-gap">
 		<div class="container">
 			<div class="menu-content pb-70 col-lg-15">
-					<div class="title text-center">
-						<h1 class="mb-10">Artists</h1>
-						<p>Sorted by all artists</p>
-					</div>
+				<div class="title text-center">
+					<h1 class="mb-10">Artists</h1>
+					<p>Sorted by all artists</p>
 				</div>
-				<div class="sorting w-25">
-					<form id="sort" action="/artistSortBy" method="post">
-						<select onchange="this.form.submit()" name="value" class="custom-select">
-							<option value="Default">Orden predeterminado</option>
-							<option value="Name">Nombre</option>
-							<option value="Surname">Apellido</option>
-							<option value="Year">Año</option>
-							<option value="Country">País</option>
-						</select>
-						<!-- <option value="YearDesc">Año mayor - menor</option> -->
-					</form>
-				</div>
-				<!--  ARREGLAR LA ESTetICA DE ESTE TROZOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO -->
-				<br>
-				<br>
-				<div class="card">
-					<div class="container">
-						<form id="filter" action="/filterArtist" method="post">
+			</div>
+			<div class="sorting w-25">
+				<form id="sort" action="/artistSortBy" method="post">
+					<select onchange="this.form.submit()" name="value"
+						class="custom-select">
+						<option value="Default">Orden predeterminado</option>
+						<option value="Name">Nombre</option>
+						<option value="Surname">Apellido</option>
+						<option value="Year">Año</option>
+						<option value="Country">País</option>
+					</select>
+					<!-- <option value="YearDesc">Año mayor - menor</option> -->
+				</form>
+			</div>
+			<br> <br>
+			<div class="card">
+				<div class="container">
+					<form id="filter" action="/filterArtist" method="post">
 						<br>
 						<div class="head">Filtrar por:</div>
 						<br>
-							<div class="row">
-							<div class="col-sm">Nombre<input
-								class="form-control" type="text" id="name" name="name"
-								th:attr="value = ${name}"></div>
-							<div class="col-sm">Apellido<input
-								class="form-control" type="text" id="surname" name="surname"
-								th:attr="value = ${surname}"></div>
-							<div class="col-sm">País<input
-								class="form-control" type="text" id="country" name="country"
-								th:attr="value = ${country}"></div>
+						<div class="row">
+							<div class="col-sm">
+								Nombre<input class="form-control" type="text" id="name"
+									name="name" th:attr="value = ${name}">
 							</div>
-					<br>
-					<div class="common-filter">
-						<div class="head">Búsqueda</div>
-						<ul>
-							<li class="filter-list"><button type="submit"
-									class="add-painting primary-btn text-white" form="filter">Aplicar</button></li>
-						</ul>
-					</div>
-					<br>
-				</form>
+							<div class="col-sm">
+								Apellido<input class="form-control" type="text" id="surname"
+									name="surname" th:attr="value = ${surname}">
+							</div>
+							<div class="col-sm">
+								País<input class="form-control" type="text" id="country"
+									name="country" th:attr="value = ${country}">
+							</div>
+						</div>
+						<br>
+						<div class="common-filter">
+							<div class="head">Búsqueda</div>
+							<ul>
+								<li class="filter-list"><button type="submit"
+										class="add-painting primary-btn text-white" form="filter">Aplicar</button></li>
+							</ul>
+						</div>
+						<br>
+					</form>
+				</div>
 			</div>
-		</div>
-		<br><br>
-				<!-- HASTA AQUI LLEGA EL DESTROZOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO -->
+			<br>
+			<br>
 			<div class="row">
 				<div th:each="artist: ${artists}"
 					class="col-lg-4 col-md-6 single-exhibition">
@@ -171,8 +173,7 @@
 					<div class="single-footer-widget text-white">
 						<h6 class="text-success">Page made by</h6>
 						<span>Jose Luis Sierra Benito</span><br> <span>Marcos
-							Ruiz</span><br> <span>Daniel Ruiz</span><br> <span>Kike
-							el andaluz</span>
+							Ruiz</span><br> <span>Daniel Ruiz</span><br> <span>Enrique Márquez Jiménez</span>
 						<p class="footer-text">
 							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 							Copyright &copy; All rights reserved</a>
@@ -182,9 +183,8 @@
 				</div>
 				<div class="col-lg-5 col-md-6 col-sm-6 d-flex flex-row-reverse">
 					<div id="logo my-auto">
-						<br>
-						<br>
-						<br> <a href="/"><img src="img/logo.png" alt="" title="" /></a>
+						<br> <br> <br> <a href="/"><img
+							src="img/logo.png" alt="" title="" /></a>
 					</div>
 				</div>
 			</div>
