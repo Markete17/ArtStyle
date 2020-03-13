@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import art.main.database.Artist;
 import art.main.database.ArtistRepository;
+import art.main.database.ArtistService;
 import art.main.database.Client;
 
 @Controller
@@ -17,6 +18,9 @@ public class ArtistController {
 
 	@Autowired
 	private ArtistRepository artistRepository;
+	
+	@Autowired
+	private ArtistService artistService;
 	
 	@GetMapping("/artists")
 	public String loadPaintings(Model model) {
@@ -63,6 +67,15 @@ public class ArtistController {
 			model.addAttribute("artists", this.artistRepository.OrderByCountry());
 			break;
 		}
+		return "artist";
+	}
+	
+	@RequestMapping("/filterArtist")
+	public String filterPaintings(Model model, @RequestParam(defaultValue ="") String name, @RequestParam(defaultValue = "") String surname,@RequestParam(defaultValue = "") String country) {
+		model.addAttribute("name", name);
+		model.addAttribute("surname", surname);
+		model.addAttribute("country",country);
+		model.addAttribute("artists",this.artistService.filterBy(name,surname,country));	
 		return "artist";
 	}
 	

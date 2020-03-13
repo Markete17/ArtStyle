@@ -23,14 +23,22 @@
 <!--
             CSS
             ============================================= -->
-<link rel="stylesheet" href="../static/css/linearicons.css" th:href="@{/css/linearicons.css}">
-<link rel="stylesheet" href="../static/css/font-awesome.min.css" th:href="@{/css/font-awesome.min.css}">
-<link rel="stylesheet" href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}">
-<link rel="stylesheet" href="../static/css/magnific-popup.css" th:href="@{/css/magnific-popup.css}">
-<link rel="stylesheet" href="../static/css/nice-select.css" th:href="@{/css/nice-select.css}">
-<link rel="stylesheet" href="../static/css/animate.min.css" th:href="@{/css/animate.min.css}">
-<link rel="stylesheet" href="../static/css/owl.carousel.css" th:href="@{/css/owl.carousel.css}">
-<link rel="stylesheet" href="../static/css/main.css" th:href="@{/css/main.css}">
+<link rel="stylesheet" href="../static/css/linearicons.css"
+	th:href="@{/css/linearicons.css}">
+<link rel="stylesheet" href="../static/css/font-awesome.min.css"
+	th:href="@{/css/font-awesome.min.css}">
+<link rel="stylesheet" href="../static/css/bootstrap.css"
+	th:href="@{/css/bootstrap.css}">
+<link rel="stylesheet" href="../static/css/magnific-popup.css"
+	th:href="@{/css/magnific-popup.css}">
+<link rel="stylesheet" href="../static/css/nice-select.css"
+	th:href="@{/css/nice-select.css}">
+<link rel="stylesheet" href="../static/css/animate.min.css"
+	th:href="@{/css/animate.min.css}">
+<link rel="stylesheet" href="../static/css/owl.carousel.css"
+	th:href="@{/css/owl.carousel.css}">
+<link rel="stylesheet" href="../static/css/main.css"
+	th:href="@{/css/main.css}">
 </head>
 <body>
 	<!-- header -->
@@ -64,7 +72,7 @@
 				<div class="about-content col-lg-12">
 					<h1 class="text-white">All About Art</h1>
 					<p class="text-white">
-					<a href="/">Home</a>  
+						<a href="/">Home</a>
 					</p>
 				</div>
 			</div>
@@ -73,11 +81,11 @@
 	<!-- End banner Area -->
 
 
-		<!-- Start upcoming-exibition Area -->
+	<!-- Start upcoming-exibition Area -->
 	<section class="upcoming-exibition-area section-gap">
 		<div class="container">
 			<div class="row d-flex justify-content-center">
-			<div class="sorting">
+				<div class="sorting">
 					<form id="sort" action="/artistSortBy" method="post">
 						<select onchange="this.form.submit()" name="value">
 							<option value="Default">Orden predeterminado</option>
@@ -85,7 +93,8 @@
 							<option value="Surname">Apellido</option>
 							<option value="Year">Año</option>
 							<option value="Country">País</option>
-						</select> <!-- <option value="YearDesc">Año mayor - menor</option> -->
+						</select>
+						<!-- <option value="YearDesc">Año mayor - menor</option> -->
 					</form>
 				</div>
 				<div class="menu-content pb-70 col-lg-8">
@@ -94,28 +103,61 @@
 						<p>Sorted by all artists</p>
 					</div>
 				</div>
+				<!--  ARREGLAR LA ESTetICA DE ESTE TROZOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO -->
+				<form id="filter" action="/filterArtist" method="post">
+
+					<div class="common-filter">
+
+						<div class="head">Filtrar por:</div>
+						<ul>
+							<li class="filter-list w-50">Nombre<input
+								class="form-control" type="text" id="name" name="name"
+								th:attr="value = ${name}"></li>
+							<li class="filter-list w-50">Apellido<input
+								class="form-control" type="text" id="surname" name="surname"
+								th:attr="value = ${surname}"></li>
+							<li class="filter-list w-50">País<input
+								class="form-control" type="text" id="country" name="country"
+								th:attr="value = ${country}"></li>
+						</ul>
+					</div>
+					<div class="common-filter">
+						<div class="head">Búsqueda</div>
+						<ul>
+							<li class="filter-list"><button type="submit"
+									class="add-painting" form="filter">Aplicar</button></li>
+						</ul>
+					</div>
+				</form>
+				<!-- HASTA AQUI LLEGA EL DESTROZOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO -->
 			</div>
 			<div class="row">
-				<div th:each="artist: ${artists}" class="col-lg-4 col-md-6 single-exhibition">
+				<div th:each="artist: ${artists}"
+					class="col-lg-4 col-md-6 single-exhibition">
 					<div class="thumb">
 						<img class="img-fluid" src="img/pages/ex1.jpg" alt="">
 					</div>
-					<a th:text="${artist.name} +' '" href="#"><h4></h4></a><a href="#" th:text="${artist.surname}" ></a>
-					<p th:text="${artist.year} +' '" href="#"><h4></h4></p><p href="#" th:text="${artist.country}" ></p>
+					<a th:text="${artist.name} +' '" href="#"><h4></h4></a><a href="#"
+						th:text="${artist.surname}"></a>
+					<p th:text="${artist.year} +' '" href="#">
+					<h4></h4>
+					</p>
+					<p href="#" th:text="${artist.country}"></p>
 					<p th:text="${artist.email}"></p>
-					
+
 					<div class="meta-bottom d-flex justify-content-start">
-					
+
 						<p th:text="${artist.phone}" class="price"></p>
 					</div>
-					<a th:href="@{artists/(id=${artist.id})}" type="submit" class="primary-btn text-white" style="float: left">Edit</a>
+					<a th:href="@{artists/(id=${artist.id})}" type="submit"
+						class="primary-btn text-white" style="float: left">Edit</a>
 				</div>
 			</div>
-			
+
 		</div>
 	</section>
 	<!-- End upcoming-exibition Area -->
-	
+
 	<!-- start footer Area -->
 	<footer class="footer-area pt-5 w-1 bg-dark">
 		<div class="container pb-2">
@@ -123,25 +165,24 @@
 				<div class="col-lg-5 col-md-6 col-sm-6">
 					<div class="single-footer-widget text-white">
 						<h6 class="text-success">Page made by</h6>
-						<span>Jose Luis Sierra Benito</span><br>
-						<span>Marcos Ruiz</span><br>
-						<span>Daniel Ruiz</span><br>
-						<span>Kike el andaluz</span>
+						<span>Jose Luis Sierra Benito</span><br> <span>Marcos
+							Ruiz</span><br> <span>Daniel Ruiz</span><br> <span>Kike
+							el andaluz</span>
 						<p class="footer-text">
 							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-							Copyright &copy;
-							All rights reserved</a>
+							Copyright &copy; All rights reserved</a>
 							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 						</p>
 					</div>
 				</div>
 				<div class="col-lg-5 col-md-6 col-sm-6 d-flex flex-row-reverse">
 					<div id="logo my-auto">
-						<br><br><br>
-						<a href="/"><img src="img/logo.png" alt="" title="" /></a>
+						<br>
+						<br>
+						<br> <a href="/"><img src="img/logo.png" alt="" title="" /></a>
 					</div>
 				</div>
-			</div>			
+			</div>
 		</div>
 		<div class="row mx-auto pb-2">
 			<div class="mx-auto">
@@ -152,7 +193,7 @@
 						<li><a href="/clients">Clients</a></li>
 						<li><a href="/artists">Artists</a></li>
 					</ul>
-				</nav>	
+				</nav>
 			</div>
 		</div>
 	</footer>
