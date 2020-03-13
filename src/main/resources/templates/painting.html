@@ -93,7 +93,8 @@
 							<option value="PriceAsc">Precio menor - mayor</option>
 							<option value="YearDesc">Año mayor - menor</option>
 							<option value="YearAsc">Año menor - mayor</option>
-						</select> <!-- <option value="YearDesc">Año mayor - menor</option> -->
+						</select>
+						<!-- <option value="YearDesc">Año mayor - menor</option> -->
 					</form>
 				</div>
 				<div class="menu-content pb-70 col-lg-8">
@@ -103,6 +104,33 @@
 					</div>
 				</div>
 			</div>
+			<form id="filter" action="/filterPainting" method="post">
+				<div class="common-filter">
+					<div class="head">Tama&ntilde;o</div>
+					<ul>
+						<li class="filter-list w-50">Máximo de ancho<input class="form-control"
+							type="number" id="width" name="width" th:attr = "value = ${width}"></li>
+						<li class="filter-list w-50">Máximo de alto<input class="form-control"
+							type="number" id="height" name="height" th:attr = "value = ${height}"></li>
+					</ul>
+				</div>
+				<div class="common-filter">
+					<div class="head">Precio</div>
+					<ul>
+						<li class="filter-list w-50">Mínimo<input type="number"
+							class="form-control" min="0" name="min_price" th:attr = "value = ${min_price}" /></li>
+						<li class="filter-list w-50">Máximo<input type="number"
+							class="form-control" min="0" name="max_price" th:attr = "value = ${max_price}" /></li>
+					</ul>
+				</div>
+				<div class="common-filter">
+					<div class="head">Búsqueda</div>
+					<ul>
+						<li class="filter-list"><button type="submit"
+								class="add-painting" form="filter">Aplicar</button></li>
+					</ul>
+				</div>
+			</form>
 			<div class="row">
 				<div th:each="painting : ${paintings}"
 					class="col-lg-4 col-md-6 single-exhibition">
@@ -137,9 +165,8 @@
 				</div>
 				<div class="col-lg-5 col-md-6 col-sm-6 d-flex flex-row-reverse">
 					<div id="logo my-auto">
-						<br>
-						<br>
-						<br> <a href="/"><img src="img/logo.png" alt="" title="" /></a>
+						<br> <br> <br> <a href="/"><img
+							src="img/logo.png" alt="" title="" /></a>
 					</div>
 				</div>
 			</div>
