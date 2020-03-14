@@ -1,4 +1,5 @@
-	<!DOCTYPE html>
+
+<!DOCTYPE html>
 <html lang="zxx" class="no-js" xmlns:th="http://www.thymeleaf.org">
 <head>
 <!-- Mobile Specific Meta -->
@@ -69,67 +70,87 @@
 	</section>
 	<!-- End banner Area -->
 
-			<!-- Start contact-page Area -->
-			<section class="contact-page-area section-gap">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-4 d-flex flex-column address-wrap">
-							<div class="single-contact-address d-flex flex-row">
-								<div class="icon">
-									<span class="lnr lnr-home"></span>
-								</div>
-								<div class="contact-details">
-									<h5>Dhaka, Bangladesh</h5>
-									<p>56/8, West Panthapath</p>
-								</div>
-							</div>
-							<div class="single-contact-address d-flex flex-row">
-								<div class="icon">
-									<span class="lnr lnr-phone-handset"></span>
-								</div>
-								<div class="contact-details">
-									<h5>00 (880) 9865 562</h5>
-									<p>Mon to Fri 9am to 6 pm</p>
-								</div>
-							</div>
-							<div class="single-contact-address d-flex flex-row">
-								<div class="icon">
-									<span class="lnr lnr-envelope"></span>
-								</div>
-								<div class="contact-details">
-									<h5>support@codethemes.com</h5>
-									<p>Send us your query anytime!</p>
-								</div>
-							</div>														
+	<!-- Start contact-page Area -->
+	<section class="contact-page-area section-gap">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4 d-flex flex-column address-wrap">
+					<div class="single-contact-address d-flex flex-row">
+						<div class="icon">
+							<span class="lnr lnr-home"></span>
 						</div>
-						<div class="col-lg-8">
-							<form action="/added_painting" class="form-area " id="myForm" action="mail.php" method="post" class="contact-form text-right">
-								<div class="row">	
-									<div class="col-lg-6 form-group">
-										<input name="title" placeholder="Enter painting name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter painting name'" class="common-input mb-20 form-control" required="" type="text">
-										<input name="email" placeholder="Enter autor email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter autor email'" class="common-input mb-20 form-control" required="" type="text">
-									
-										<input name="date" placeholder="Enter the date" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter the date'" class="common-input mb-20 form-control" required="" type="date">
-
-										<input name="year" placeholder="Enter ending year" min="1900" max="2020" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your subject'" class="common-input mb-20 form-control" required="" type="number">
-										<div class="mt-20 alert-msg" style="text-align: left;"></div>
-									</div>
-									<div class="col-lg-6 form-group">
-										<input name="height" min="0" type='number' step='0.01' placeholder='Enter Height(cm): 0.00' class="common-input mb-20 form-control" required="" />
-										<input name="width" min="0" type='number' step='0.01' placeholder='Enter Width(cm): 0.00' class="common-input mb-20 form-control" required="" />
-										<input name="price" min="0" placeholder="Enter painting price" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter painting price'" class="common-input mb-20 form-control" required="" type="number">				
-									</div>
-									<div>
-									<textarea class="common-textarea form-control" cols="150" name="description" placeholder="Description" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Description'" required=""></textarea>
-																			<input type="submit" class="primary-btn mt-20 text-white" value="Add painting" style="float: right">	
-									</div>
-								</div>
-							</form>	
+						<div class="contact-details">
+							<h5>Madrid, Móstoles</h5>
+							<p>s/n, Calle Tulipán</p>
 						</div>
 					</div>
-				</div>	
-			</section>
-			<!-- End contact-page Area -->
+					<div class="single-contact-address d-flex flex-row">
+						<div class="icon">
+							<span class="lnr lnr-phone-handset"></span>
+						</div>
+						<div class="contact-details">
+							<h5>(+34) 914 88 93 93</h5>
+							<p>Mon to Fri | 9am to 6 pm</p>
+						</div>
+					</div>
+					<div class="single-contact-address d-flex flex-row">
+						<div class="icon">
+							<span class="lnr lnr-envelope"></span>
+						</div>
+						<div class="contact-details">
+							<h5>support@gmail.com</h5>
+							<p>Send us your query anytime!</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-8">
+					<form action="/added_painting" class="form-area " id="myForm"
+						action="mail.php" method="post" class="contact-form text-right">
+						<div class="row">
+							<div class="col-lg-6 form-group">
+								<label>Title</label> <input name="title"
+									placeholder="Enter painting name"
+									class="common-input mb-20 form-control" type="text" required>
+								<label>Email</label> <input name="email"
+									placeholder="Enter autor email"
+									class="common-input mb-20 form-control" type="text" required>
+								<label>Date</label> <input name="date"
+									placeholder="Enter the date"
+									class="common-input mb-20 form-control" type="date" required>
+								<label>Year</label> <input name="year"
+									placeholder="Enter ending year" min="1900" max="2020"
+									class="common-input mb-20 form-control" type="number" required>
+								<div class="mt-20 alert-msg" style="text-align: left;"></div>
+							</div>
+							<div class="col-lg-6 form-group">
+								<label>Height(cm)</label> <input name="height" min="0"
+									type='number' step='0.01' placeholder='Enter Height(cm) : 0.00'
+									class="common-input mb-20 form-control" required /> <label>Width(cm)</label>
+								<input name="width" min="0" type='number' step='0.01'
+									placeholder='Enter Width(cm) : 0.00'
+									class="common-input mb-20 form-control" required /> <label>Price
+									(€)</label> <input name="price" min="0"
+									placeholder="Enter painting price"
+									onfocus="this.placeholder = ''"
+									onblur="this.placeholder = 'Enter painting price'"
+									class="common-input mb-20 form-control" type="number" required>
+							</div>
+							<div class="col-lg-12 form-group">
+								<label>Description</label>
+								<textarea class="common-textarea form-control" cols="150"
+									name="description" placeholder="Description"
+									onfocus="this.placeholder = ''"
+									onblur="this.placeholder = 'Description'" required></textarea>
+								<input type="submit" class="primary-btn mt-20 float-right"
+									value="Add painting">
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End contact-page Area -->
 
 	<!-- start footer Area -->
 	<footer class="footer-area pt-5 w-1 bg-dark">
@@ -138,25 +159,24 @@
 				<div class="col-lg-5 col-md-6 col-sm-6">
 					<div class="single-footer-widget text-white">
 						<h6 class="text-success">Page made by</h6>
-						<span>Jose Luis Sierra Benito</span><br>
-						<span>Marcos Ruiz</span><br>
-						<span>Daniel Ruiz</span><br>
-						<span>Kike el andaluz</span>
+						<span>Jose Luis Sierra Benito</span><br> <span>Marcos
+							Ruiz</span><br> <span>Daniel Ruiz</span><br> <span>Kike
+							el andaluz</span>
 						<p class="footer-text">
 							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-							Copyright &copy;
-							All rights reserved</a>
+							Copyright &copy; All rights reserved</a>
 							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 						</p>
 					</div>
 				</div>
 				<div class="col-lg-5 col-md-6 col-sm-6 d-flex flex-row-reverse">
 					<div id="logo my-auto">
-						<br><br><br>
-						<a href="/"><img src="img/logo.png" alt="" title="" /></a>
+						<br>
+						<br>
+						<br> <a href="/"><img src="img/logo.png" alt="" title="" /></a>
 					</div>
 				</div>
-			</div>			
+			</div>
 		</div>
 		<div class="row mx-auto pb-2">
 			<div class="mx-auto">
@@ -167,13 +187,13 @@
 						<li><a href="/clients">Clients</a></li>
 						<li><a href="/artists">Artists</a></li>
 					</ul>
-				</nav>	
+				</nav>
 			</div>
 		</div>
 	</footer>
 	<!-- End footer Area -->
-		</body>
-	</html>
+</body>
+</html>
 
 
 

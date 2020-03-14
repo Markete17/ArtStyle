@@ -83,19 +83,39 @@
 		<div class="container">
 			<div class="menu-content pb-70 col-lg-15">
 				<div class="title text-center">
-					<h1 class="mb-10">Artists</h1>
-					<p>Sorted by all artists</p>
+					<h1 class="mb-10" id="art_posts">Artists</h1>
 				</div>
 			</div>
-			<div class="sorting w-25">
+			<p th:if="${default}" class="text-center">Sorted by all posts</p>
+			<p th:if="${option1}" class="text-center">Sorted by A to Z name</p>
+			<p th:if="${option2}" class="text-center">Sorted by Z to A name</p>
+			<p th:if="${option3}" class="text-center">Sorted by A to Z surname</p>
+			<p th:if="${option4}" class="text-center">Sorted by Z to A surname</p>
+			<p th:if="${option5}" class="text-center">Sorted by higher NIF</p>
+			<p th:if="${option6}" class="text-center">Sorted by lower NIF</p>
+			<p th:if="${option7}" class="text-center">Sorted by higher Year</p>
+			<p th:if="${option8}" class="text-center">Sorted by lower Year</p>
+			<p th:if="${option9}" class="text-center">Sorted by A to Z country</p>
+			<p th:if="${option10}" class="text-center">Sorted by Z to A country</p>
+			<p th:if="${option11}" class="text-center">Sorted by A to Z email</p>
+			<p th:if="${option12}" class="text-center">Sorted by Z to A email</p>
+			<div class="sorting w-25 mx-auto">
 				<form id="sort" action="/artistSortBy" method="post">
 					<select onchange="this.form.submit()" name="value"
 						class="custom-select">
-						<option value="Default">Orden predeterminado</option>
-						<option value="Name">Nombre</option>
-						<option value="Surname">Apellido</option>
-						<option value="Year">Año</option>
-						<option value="Country">País</option>
+						<option value="Default">Default Sort</option>
+						<option value="NameAsc" th:selected="${option1}">Name A - Z</option>
+						<option value="NameDesc" th:selected="${option2}">Name Z - A</option>
+						<option value="SurnameAsc" th:selected="${option3}">Surname A - Z</option>
+						<option value="SurnameDesc" th:selected="${option4}">Surname Z - A</option>
+						<option value="NifAsc" th:selected="${option5}">NIF Higher - Lower</option>
+						<option value="NifDesc" th:selected="${option6}">NIF Lower - Higher</option>
+						<option value="YearAsc" th:selected="${option7}">Year Higher - Lower</option>
+						<option value="YearDesc" th:selected="${option8}">Year Lower - Higher</option>
+						<option value="CountryAsc" th:selected="${option9}">Country A - Z</option>
+						<option value="CountryDesc" th:selected="${option10}">Country Z - A</option>
+						<option value="EmailAsc" th:selected="${option11}">Email A - Z</option>
+						<option value="EmailDesc" th:selected="${option12}">Email Z - A</option>
 					</select>
 					<!-- <option value="YearDesc">Año mayor - menor</option> -->
 				</form>
@@ -103,31 +123,67 @@
 			<br> <br>
 			<div class="card">
 				<div class="container">
-					<form id="filter" action="/filterArtist" method="post">
+					<form id="filter" action="/filterArtist#art_posts" method="post">
 						<br>
-						<div class="head">Filtrar por:</div>
+						<div class="head">Fill the fields you see necessary</div>
 						<br>
 						<div class="row">
 							<div class="col-sm">
-								Nombre<input class="form-control" type="text" id="name"
-									name="name" th:attr="value = ${name}">
+								<div class="filter-list w-75">
+									Name<input class="form-control" type="text" pattern="^[a-zA-Z]*$"
+										title="Only alphabetic characters"
+										id="name" name="name" th:attr="value = ${name}">
+								</div>
+								<div class="filter-list mt-2 w-75">
+									Surname<input class="form-control" type="text" pattern="^[a-zA-Z]*$"
+										title="Only alphabetic characters"
+										id="surname" name="surname"
+										th:attr="value = ${surname}">
+								</div>
+								<div class="filter-list mt-2 w-75">
+									NIF<input class="form-control" type="text" 
+										pattern="(([X-Z]{1})([-]?)(\d{7})([-]?)([A-Z]{1}))|((\d{8})([-]?)([A-Z]{1}))"
+										title="It must contain 8 numbers and a final character"
+										id="nif" name="nif" th:attr="value = ${nif}">
+								</div>
 							</div>
 							<div class="col-sm">
-								Apellido<input class="form-control" type="text" id="surname"
-									name="surname" th:attr="value = ${surname}">
+								<div class="filter-list w-75">
+									Birth Country<input class="form-control" type="text" pattern="^[a-zA-Z]*$"
+										title="Only alphabetic characters"
+										id="country" name="country" th:attr="value = ${country}">
+								</div>
+								<div class="filter-list mt-2 w-75">
+									Min Year Born<input class="form-control" type="number" min="0" max="2020"
+										id="min_year" name="min_year"
+										th:attr="value = ${min_year}">
+								</div>
+								<div class="filter-list mt-2 w-75">
+									Max Year Born<input class="form-control" type="number" min="0" max="2020"
+										id="max_year" name="max_year" th:attr="value = ${max_year}">
+								</div>
 							</div>
 							<div class="col-sm">
-								País<input class="form-control" type="text" id="country"
-									name="country" th:attr="value = ${country}">
+								<div class="filter-list w-75">
+									Address<input class="form-control" type="text"
+										id="address" name="address" th:attr="value = ${address}">
+								</div>
+								<div class="filter-list mt-2 w-75">
+									Email<input class="form-control" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+										title="Insert a valid email"
+										id="email" name="email"
+										th:attr="value = ${email}">
+								</div>
+								<div class="filter-list mt-2 w-75">
+									Phone<input class="form-control" type="text" pattern=".{0}|.{7,10}"
+										id="phone" name="phone" th:attr="value = ${phone}">
+								</div>
 							</div>
 						</div>
 						<br>
-						<div class="common-filter">
-							<div class="head">Búsqueda</div>
-							<ul>
-								<li class="filter-list"><button type="submit"
-										class="add-painting primary-btn text-white" form="filter">Aplicar</button></li>
-							</ul>
+						<div class="common-filter mt-3">
+							<button type="submit" class="add-painting primary-btn"
+								form="filter">Search</button>
 						</div>
 						<br>
 					</form>
@@ -136,13 +192,9 @@
 			<br>
 			<br>
 			<div class="row">
-				<div th:each="artist: ${artists}"
-					class="col-lg-4 col-md-6 single-exhibition">
-					<div class="thumb">
-						<img class="img-fluid" src="img/pages/ex1.jpg" alt="">
-					</div>
-					<a th:text="${artist.name} +' '" href="#"><h4></h4></a><a href="#"
-						th:text="${artist.surname}"></a>
+				<div th:each="artist: ${artists}" class="col-lg-4 col-md-6 single-exhibition mt-5">
+					<a th:text="${artist.name} +' '" href="#"><h4></h4></a>
+					<a href="#" th:text="${artist.surname}"></a>
 					<p th:text="${artist.year} +' '" href="#">
 					<h4></h4>
 					</p>

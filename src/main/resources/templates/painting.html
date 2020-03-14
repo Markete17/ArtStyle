@@ -83,7 +83,7 @@
 		<div class="container mx-auto">
 			<div class="menu-content pb-70 col-lg-15">
 				<div class="title text-center">
-					<h1 class="mb-10">Art posts</h1>
+					<h1 class="mb-10" id="art_posts">Art paintings</h1>
 				</div>
 			</div>
 			<p th:if="${default}" class="text-center">Sorted by all posts</p>
@@ -91,8 +91,11 @@
 			<p th:if="${option2}" class="text-center">Sorted by lower cost</p>
 			<p th:if="${option3}" class="text-center">Sorted by higher year</p>
 			<p th:if="${option4}" class="text-center">Sorted by lower year</p>
+			<p th:if="${option5}" class="text-center">Sorted by A to Z title</p>
+			<p th:if="${option6}" class="text-center">Sorted by Z to A title</p>
+
 			<div class="sorting w-25 mx-auto">
-				<form id="sort" action="/productSortBy" method="post">
+				<form id="sort" action="/productSortBy#art_posts" method="post">
 					<select onchange="this.form.submit()" name="value"
 						class="custom-select">
 						<option value="Default">Default Sort</option>
@@ -104,43 +107,94 @@
 							Higher - Lower</option>
 						<option value="YearAsc" th:selected="${option4}">Year
 							Lower - Higher</option>
+						<option value="TitleAsc" th:selected="${option5}">Title A
+							- Z</option>
+						<option value="TitleDesc" th:selected="${option6}">Title
+							Z - A</option>
 					</select>
 				</form>
 			</div>
 			<br> <br>
 			<div class="card">
 				<div class="container">
-					<form id="filter" action="/filterPainting" method="post">
+					<form id="filter" action="/filterPainting#art_posts" method="post">
+						<br>
+						<div class="head">Fill the fields you see necessary</div>
 						<br>
 						<div class="row">
 							<div class="col-sm">
-								<div class="head mb-2 font-weight-bold">Size</div>
-								<div class="filter-list w-50">
-									Max Width<input class="form-control" type="number" id="width"
-										name="width" th:attr="value = ${width}">
+								<div class="head mb-2 font-weight-bold">Max Size</div>
+								<div class="filter-list w-75">
+									Max Width<input class="form-control" type="number" min="0"
+										id="max_width" name="max_width" th:attr="value = ${max_width}">
 								</div>
-								<div class="filter-list w-50 mt-2">
-									Max Height<input class="form-control" type="number" id="height"
-										name="height" th:attr="value = ${height}">
+								<div class="filter-list mt-2 w-75">
+									Max Height<input class="form-control" type="number" min="0"
+										id="max_height" name="max_height"
+										th:attr="value = ${max_height}">
+								</div>
+							</div>
+							<div class="col-sm">
+								<div class="head mb-2 font-weight-bold">Min Size</div>
+								<div class="filter-list w-75">
+									Min Width<input class="form-control" type="number" min="0"
+										id="min_width" name="min_width" th:attr="value = ${min_width}">
+								</div>
+								<div class="filter-list mt-2 w-75">
+									Min Height<input class="form-control" type="number" min="0"
+										id="min_height" name="min_height"
+										th:attr="value = ${min_height}">
+								</div>
+							</div>
+							<div class="col-sm">
+								<div class="head mb-2 font-weight-bold">Year of creation</div>
+								<div class="filter-list w-75">
+									Min Year<input class="form-control" type="number" min="0" id="min_year" 
+										name="min_year" th:attr="value = ${min_year}">
+								</div>
+								<div class="filter-list mt-2 w-75">
+									Max Year<input class="form-control" type="number" min="0" id="max_year"
+										name="max_year" th:attr="value = ${max_year}">
 								</div>
 							</div>
 							<div class="col-sm">
 								<div class="head mb-2 font-weight-bold">Cost</div>
-								<div class="filter-list w-50">
+								<div class="filter-list w-75">
 									Min<input type="number" class="form-control" min="0"
 										name="min_price" th:attr="value = ${min_price}" />
 								</div>
-								<div class="filter-list w-50 mt-2">
+								<div class="filter-list mt-2 w-75">
 									Max<input type="number" class="form-control" min="0"
 										name="max_price" th:attr="value = ${max_price}" />
 								</div>
 							</div>
 						</div>
-						<br>
+						<div class="row my-4">
+							<div class="col-sm">
+								<div class="filter-list w-75">
+									<span class="mr-3 font-weight-bold">Filter by: </span>
+									<div class="custom-control custom-radio custom-control-inline">
+										<input type="radio" id="option1" name="sold"
+											class="custom-control-input" value="1" th:checked="${checked1}">
+										<label class="custom-control-label" for="option1">All</label>
+									</div>
+									<div class="custom-control custom-radio custom-control-inline">
+										<input type="radio" id="option2" name="sold"
+											class="custom-control-input" value="2" th:checked="${checked2}">
+										<label class="custom-control-label" for="option2">Sold</label>
+									</div>
+									<div class="custom-control custom-radio custom-control-inline">
+										<input type="radio" id="option3" name="sold"
+											class="custom-control-input" value="3" th:checked="${checked3}">
+										<label class="custom-control-label" for="option3">Not Sold</label>
+									</div>
+								</div>
+							</div>
+						</div>
 						<div class="filter">
 							<div class="filter-list">
-								<button type="submit"
-									class="add-painting primary-btn" form="filter">Search</button>
+								<button type="submit" class="add-painting primary-btn"
+									form="filter">Search</button>
 							</div>
 						</div>
 						<br>
@@ -151,16 +205,34 @@
 			<div class="row">
 				<div th:each="painting : ${paintings}"
 					class="col-lg-4 col-md-6 single-exhibition mt-5">
-					<p th:text="${painting.title}" class="font-weight-bold"></p> 
+					<p th:text="${painting.title}" class="font-weight-bold" th:id="'myForm' + ${painting.id}"></p>
 					<p class="text-justify" th:text="${painting.description}"></p>
-					<p th:text="${painting.price} + ' €'" class="price"></p>
-					<div th:if="${painting.sold}" class="mb-3">
-						<button type="button" class="btn btn-info" disabled>Sold</button>
-						<span th:text="${painting.date}" class="date"></span>
+					<span class="font-weight-bold">Size: </span>
+					<span th:text="${painting.width}"></span>
+					<span> x </span>
+					<span th:text="${painting.height}"></span>
+					<p th:text="${painting.price} + ' €'" class="price mt-3"></p>
+					<span class="font-weight-bold">Painted by: </span>
+					<span th:text="${painting.autor.name}" class="text-danger"></span>
+					<span> in </span>
+					<span th:text="${painting.year}" class="text-primary"></span>
+					<div th:if="${painting.sold}" class="mb-3 mt-2">
+						<span type="button" class="font-weight-bold">Sold</span>
+						<span> on </span>
+						<span th:text="${painting.date}" class="date text-primary"></span>
+						<span> to </span>
+						<span th:text="${painting.client.name}" class="text-danger"></span>
 					</div>
-					<div th:unless="${painting.sold}" class="mb-3">
-						<a type="submit" class="btn btn-info"
-							th:href="@{painting_buy/(id=${painting.id})}">Not sold</a>
+					<div th:unless="${painting.sold}" class="my-3 text-center">
+						<form th:action="@{/paintings/sold/(id=${painting.id})} + '#myForm' + ${painting.id}" method="post" class="needs-validation">
+							<small th:if="${not_found == true and id_painting == painting.id}" class="text-danger">Client not found!</small>
+							<div class="form-group flex">
+								<input type="submit" class="btn btn-info rounded-0" value="Not sold">
+								<input name="nif" placeholder="Client NIF" class="common-input form-control rounded-0" 
+									type="text" pattern="(([X-Z]{1})([-]?)(\d{7})([-]?)([A-Z]{1}))|((\d{8})([-]?)([A-Z]{1}))"
+									title="It must contain 8 numbers and a final character" required>			
+							</div>
+						</form>
 					</div>
 					<a th:href="@{paintings/(id=${painting.id})}" type="submit"
 						class="btn primary-btn btn-sm">Edit</a>
