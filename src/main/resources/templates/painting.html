@@ -71,9 +71,6 @@
 			<div class="row d-flex align-items-center justify-content-center">
 				<div class="about-content col-lg-12">
 					<h1 class="text-white">All About Art</h1>
-					<p class="text-white">
-						<a href="/">Home</a>
-					</p>
 				</div>
 			</div>
 		</div>
@@ -83,73 +80,90 @@
 
 	<!-- Start upcoming-exibition Area -->
 	<section class="upcoming-exibition-area section-gap">
-		<div class="container">
-		<div class="menu-content pb-70 col-lg-15">
-					<div class="title text-center">
-						<h1 class="mb-10">Art posts</h1>
-						<p>Sorted by all posts</p>
-					</div>
+		<div class="container mx-auto">
+			<div class="menu-content pb-70 col-lg-15">
+				<div class="title text-center">
+					<h1 class="mb-10">Art posts</h1>
 				</div>
-				<div class="sorting w-25">
-					<form id="sort" action="/productSortBy" method="post">
-						<select onchange="this.form.submit()" name="value" class="custom-select">
-							<option value="Default">Orden predeterminado</option>
-							<option value="PriceDesc">Precio mayor - menor</option>
-							<option value="PriceAsc">Precio menor - mayor</option>
-							<option value="YearDesc">Año mayor - menor</option>
-							<option value="YearAsc">Año menor - mayor</option>
-						</select>
-						<!-- <option value="YearDesc">Año mayor - menor</option> -->
+			</div>
+			<p th:if="${default}" class="text-center">Sorted by all posts</p>
+			<p th:if="${option1}" class="text-center">Sorted by higher cost</p>
+			<p th:if="${option2}" class="text-center">Sorted by lower cost</p>
+			<p th:if="${option3}" class="text-center">Sorted by higher year</p>
+			<p th:if="${option4}" class="text-center">Sorted by lower year</p>
+			<div class="sorting w-25 mx-auto">
+				<form id="sort" action="/productSortBy" method="post">
+					<select onchange="this.form.submit()" name="value"
+						class="custom-select">
+						<option value="Default">Default Sort</option>
+						<option value="PriceDesc" th:selected="${option1}">Cost
+							Higher - Lower</option>
+						<option value="PriceAsc" th:selected="${option2}">Cost
+							Lower - Higher</option>
+						<option value="YearDesc" th:selected="${option3}">Year
+							Higher - Lower</option>
+						<option value="YearAsc" th:selected="${option4}">Year
+							Lower - Higher</option>
+					</select>
+				</form>
+			</div>
+			<br> <br>
+			<div class="card">
+				<div class="container">
+					<form id="filter" action="/filterPainting" method="post">
+						<br>
+						<div class="row">
+							<div class="col-sm">
+								<div class="head mb-2 font-weight-bold">Size</div>
+								<div class="filter-list w-50">
+									Max Width<input class="form-control" type="number" id="width"
+										name="width" th:attr="value = ${width}">
+								</div>
+								<div class="filter-list w-50 mt-2">
+									Max Height<input class="form-control" type="number" id="height"
+										name="height" th:attr="value = ${height}">
+								</div>
+							</div>
+							<div class="col-sm">
+								<div class="head mb-2 font-weight-bold">Cost</div>
+								<div class="filter-list w-50">
+									Min<input type="number" class="form-control" min="0"
+										name="min_price" th:attr="value = ${min_price}" />
+								</div>
+								<div class="filter-list w-50 mt-2">
+									Max<input type="number" class="form-control" min="0"
+										name="max_price" th:attr="value = ${max_price}" />
+								</div>
+							</div>
+						</div>
+						<br>
+						<div class="filter">
+							<div class="filter-list">
+								<button type="submit"
+									class="add-painting primary-btn" form="filter">Search</button>
+							</div>
+						</div>
+						<br>
 					</form>
 				</div>
-				<br>
-				<br>
-			<div class="card">
-					<div class="container">
-			<form id="filter" action="/filterPainting" method="post">
-			<br>
-			<div class="row">
-				<div class="col-sm">
-					<div class="head">Tama&ntilde;o</div>
-						<div class="filter-list w-50">Máximo de ancho<input class="form-control"
-							type="number" id="width" name="width" th:attr = "value = ${width}"></div>
-						<div class="filter-list w-50">Máximo de alto<input class="form-control"
-							type="number" id="height" name="height" th:attr = "value = ${height}"></div>
-				</div>
-				<div class="col-sm">
-					<div class="head">Precio</div>
-						<div class="filter-list w-50">Mínimo<input type="number"
-							class="form-control" min="0" name="min_price" th:attr = "value = ${min_price}" /></div>
-						<div class="filter-list w-50">Máximo<input type="number"
-							class="form-control" min="0" name="max_price" th:attr = "value = ${max_price}" /></div>
-				</div>
-				</div>
-								<br>
-				<div class="filter">Búsqueda
-						<div class="filter-list"><button type="submit"
-								class="add-painting primary-btn text-white" form="filter">Aplicar</button></div></div>
-								<br>
-			</form>
 			</div>
-			</div>
-			<br>
-			<br>
+			<br> <br>
 			<div class="row">
 				<div th:each="painting : ${paintings}"
-					class="col-lg-4 col-md-6 single-exhibition">
-					<span th:text="${painting.title}"></span></span><br> <span
-						th:text="${painting.date}" class="date"></span><br> <span
-						class="justify-content" th:text="${painting.description}"></span>
-					<div class="meta-bottom d-flex justify-content-start">
-						<p th:text="${painting.price} + ' €'" class="price"></p>
+					class="col-lg-4 col-md-6 single-exhibition mt-5">
+					<p th:text="${painting.title}" class="font-weight-bold"></p> 
+					<p class="text-justify" th:text="${painting.description}"></p>
+					<p th:text="${painting.price} + ' €'" class="price"></p>
+					<div th:if="${painting.sold}" class="mb-3">
+						<button type="button" class="btn btn-info" disabled>Sold</button>
+						<span th:text="${painting.date}" class="date"></span>
 					</div>
-					<div class="row">
-					<a th:href="@{paintings/(id=${painting.id})}" type="submit" class="primary-btn text-white" style="float: left">Edit</a>
-					<button type="button" class="btn btn-info" th:if="${painting.sold}" disabled>Sold</button>
-					<div th:unless="${painting.sold}">
-					<a type="submit" class="btn btn-info" th:href="@{painting_buy/(id=${painting.id})}" >Buy</a>
+					<div th:unless="${painting.sold}" class="mb-3">
+						<a type="submit" class="btn btn-info"
+							th:href="@{painting_buy/(id=${painting.id})}">Not sold</a>
 					</div>
-					</div>
+					<a th:href="@{paintings/(id=${painting.id})}" type="submit"
+						class="btn primary-btn btn-sm">Edit</a>
 
 				</div>
 			</div>
@@ -165,11 +179,10 @@
 					<div class="single-footer-widget text-white">
 						<h6 class="text-success">Page made by</h6>
 						<span>Jose Luis Sierra Benito</span><br> <span>Marcos
-							Ruiz</span><br> <span>Daniel Ruiz</span><br> <span>Enrique Márquez Jiménez</span>
+							Ruiz</span><br> <span>Daniel Ruiz</span><br> <span>Enrique
+							Márquez Jiménez</span>
 						<p class="footer-text">
-							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 							Copyright &copy; All rights reserved</a>
-							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 						</p>
 					</div>
 				</div>

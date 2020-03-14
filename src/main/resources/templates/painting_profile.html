@@ -63,9 +63,6 @@
 			<div class="row d-flex align-items-center justify-content-center">
 				<div class="about-content col-lg-12">
 					<h1 class="text-white">All About Art</h1>
-					<p class="text-white">
-					<a href="/">Home</a>  
-					</p>
 				</div>
 			</div>
 		</div>
@@ -77,12 +74,29 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-lg-4 d-flex flex-column address-wrap">
+							<h3 class="text-muted mb-3">Painting Info</h3>
 							<div class="single-contact-address d-flex flex-row">
-								<div class="icon">
-									<span class="lnr lnr-home"></span>
-								</div>
 								<div class="contact-details">
-									<h5 th:text="${painting.title}"></h5><p align="justify" th:text="${painting.description}"></p>
+									<h5 th:text="${painting.title}"></h5>
+									<p align="justify" th:text="${painting.description}"></p>
+									<span class="font-weight-bold">Size: </span>
+									<span th:text="${painting.width}">
+									</span><span> x </span>
+									<span th:text="${painting.height}"></span>
+									<br>
+									<span class="font-weight-bold">Year of creation: </span>
+									<span th:text="${painting.year}"></span>
+									<br>
+									<div th:if="${painting.sold}">
+										<span class="font-weight-bold">Sold on: </span>
+										<span th:text="${painting.date}"></span>										
+									</div>
+									<div th:unless="${painting.sold}">
+										<span class="font-weight-bold">Not sold</span>
+									</div>
+									<span class="font-weight-bold">Cost: </span>
+									<span th:text="${painting.price}"></span>
+									<span>€</span>
 								</div>
 							</div>													
 						</div>
@@ -96,18 +110,20 @@
 										<input name="date" class="common-input mb-20 form-control" th:attr="value = ${painting.date}" required type="date">
 										<label>Year</label>
 										<input name="year" min="1900" max="2020" class="common-input mb-20 form-control" th:attr="value = ${painting.year}" required type="number">
-										<label>Description</label>
-										<textarea name="description" class="common-input mb-20 form-control" th:text="${painting.description}" required type="text"> </textarea>
 										<div class="mt-20 alert-msg" style="text-align: left;"></div>
 									</div>
 									<div class="col-lg-6 form-group">
-									<label>Height(cm)</label>
-									<input name="height" min="0" step='0.01' class="common-input mb-20 form-control" th:attr="value = ${painting.height}" required type="number">
-									<label>Width(cm)</label>
-									<input name="width" min="0" step='0.01' th:attr="value = ${painting.width}" class="common-input mb-20 form-control" required type="number">
-									<label>Price (€)</label>
-									<input name="price" th:attr="value=${painting.price}" class="common-input mb-20 form-control" required type="number">
-									<input type="submit" class="primary-btn mt-20 text-white" value="Edit painting" style="float: right">									
+										<label>Height(cm)</label>
+										<input name="height" min="0" step='0.01' class="common-input mb-20 form-control" th:attr="value = ${painting.height}" required type="number">
+										<label>Width(cm)</label>
+										<input name="width" min="0" step='0.01' th:attr="value = ${painting.width}" class="common-input mb-20 form-control" required type="number">
+										<label>Price (€)</label>
+										<input name="price" th:attr="value=${painting.price}" class="common-input mb-20 form-control" required type="number">								
+									</div>
+									<div class="col-12 form-group">
+										<label>Description</label>
+										<textarea name="description" class="common-input mb-20 form-control" th:text="${painting.description}" required type="text"> </textarea>
+										<input type="submit" class="primary-btn mt-20 text-white float-right" value="Edit painting">	
 									</div>
 								</div>
 							</form>	
@@ -129,17 +145,15 @@
 						<span>Daniel Ruiz</span><br>
 						<span>Kike el andaluz</span>
 						<p class="footer-text">
-							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 							Copyright &copy;
 							All rights reserved</a>
-							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 						</p>
 					</div>
 				</div>
 				<div class="col-lg-5 col-md-6 col-sm-6 d-flex flex-row-reverse">
 					<div id="logo my-auto">
 						<br><br><br>
-						<a href="/"><img src="img/logo.png" alt="" title="" /></a>
+						<a href="/"><img src="/img/logo.png" alt="" title="" /></a>
 					</div>
 				</div>
 			</div>			

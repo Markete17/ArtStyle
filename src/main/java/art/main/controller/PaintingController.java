@@ -17,91 +17,102 @@ import art.main.database.Client;
 import art.main.database.ClientRepository;
 import art.main.database.Painting;
 import art.main.database.PaintingRepository;
-import art.main.database.PaintingService;
+import art.main.service.PaintingService;
 
 @Controller
 public class PaintingController {
-	
+
 	@Autowired
 	private PaintingRepository paintingRepository;
-	
+
 	@Autowired
 	private ClientRepository clientRepository;
-	
+
 	@Autowired
 	private ArtistRepository artistRepository;
-	
+
 	@Autowired
 	private PaintingService paintingService;
-	
+
 	@GetMapping("/paintings")
 	public String loadPaintings(Model model) {
-		model.addAttribute("paintings",paintingRepository.findAll());
-		model.addAttribute("a",artistRepository);
+		model.addAttribute("paintings", paintingRepository.findAll());
+		model.addAttribute("a", artistRepository);
 		
+		model.addAttribute("default", true);
+
 		return "painting";
 	}
-	
+
 	@GetMapping("/")
 	public String loadHome() {
 		return "index";
 	}
-	
+
 	@RequestMapping("/productSortBy")
-	public String sortBy(Model model,@RequestParam String value) {
-		switch(value) {
+	public String sortBy(Model model, @RequestParam String value) {
+		switch (value) {
 		case "PriceDesc":
 			model.addAttribute("paintings", this.paintingRepository.OrderByPriceDesc());
+			model.addAttribute("option1", true);
 			break;
 		case "PriceAsc":
 			model.addAttribute("paintings", this.paintingRepository.OrderByPriceAsc());
+			model.addAttribute("option2", true);
 			break;
 		case "YearDesc":
 			model.addAttribute("paintings", this.paintingRepository.OrderByYearDesc());
+			model.addAttribute("option3", true);
 			break;
 		case "YearAsc":
 			model.addAttribute("paintings", this.paintingRepository.OrderByYearAsc());
+			model.addAttribute("option4", true);
 			break;
-		}
+		default:
+			model.addAttribute("default", true);
+		} 
+		
 		return "painting";
 	}
-	
+
 	@RequestMapping("/filterPainting")
-	public String filterPaintings(Model model, @RequestParam(defaultValue ="150.0") double width, @RequestParam(defaultValue = "150.0") double height, @RequestParam (defaultValue = "0")int min_price,
+	public String filterPaintings(Model model, @RequestParam(defaultValue = "150.0") double width,
+			@RequestParam(defaultValue = "150.0") double height, @RequestParam(defaultValue = "0") int min_price,
 			@RequestParam(defaultValue = "1000") int max_price) {
 		model.addAttribute("width", width);
 		model.addAttribute("height", height);
 		model.addAttribute("min_price", min_price);
 		model.addAttribute("max_price", max_price);
-		model.addAttribute("paintings",this.paintingService.filterBy(width,height,min_price,max_price));	
+		model.addAttribute("paintings", this.paintingService.filterBy(width, height, min_price, max_price));
+		model.addAttribute("default", true);
 		return "painting";
 	}
-	
+
 	@GetMapping("/paintings/")
-	public String showPainting(Model model,@RequestParam Long id) {
-		Painting p=paintingRepository.findById(id).get();
-		model.addAttribute("painting",p);
+	public String showPainting(Model model, @RequestParam Long id) {
+		Painting p = paintingRepository.findById(id).get();
+		model.addAttribute("painting", p);
 		return "painting_profile";
-		
+
 	}
-	
+
 	@PostMapping("/painting_update/")
-	public String updatePainting(Model model,@RequestParam Long id,Painting painting) {
-		Painting p=this.paintingRepository.findById(id).get();
-		update(p,painting);
+	public String updatePainting(Model model, @RequestParam Long id, Painting painting) {
+		Painting p = this.paintingRepository.findById(id).get();
+		update(p, painting);
 		return "redirect:/paintings";
 	}
-	
+
 	@GetMapping("/painting_buy/")
-	public String buyPainting(Model model,@RequestParam Long id) {
-		//Client c=clientRepository.findByEmail(email);
-		Painting p=paintingRepository.findById(id).get();
+	public String buyPainting(Model model, @RequestParam Long id) {
+		// Client c=clientRepository.findByEmail(email);
+		Painting p = paintingRepository.findById(id).get();
 		p.setSold(true);
-		//p.setClient(c);
+		// p.setClient(c);
 		paintingRepository.save(p);
 		return "redirect:/paintings";
 	}
-	
+
 	private void update(Painting p, Painting painting) {
 		p.setDate(painting.getDate());
 		p.setDescription(painting.getDescription());
@@ -111,13 +122,12 @@ public class PaintingController {
 		p.setTitle(painting.getTitle());
 		p.setYear(painting.getYear());
 		this.paintingRepository.save(p);
-		
+
 	}
 
-
 	@PostMapping("/added_painting")
-	public String newPainting(Painting painting,@RequestParam String email) {
-		Artist a=artistRepository.findByEmail(email);
+	public String newPainting(Painting painting, @RequestParam String email) {
+		Artist a = artistRepository.findByEmail(email);
 		painting.setAutor(a);
 		paintingRepository.save(painting);
 		return "redirect:/paintings";

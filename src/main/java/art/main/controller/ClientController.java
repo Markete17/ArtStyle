@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import art.main.database.Client;
 import art.main.database.ClientRepository;
-import art.main.database.ClientService;
+import art.main.service.ClientService;
 
 @Controller
 public class ClientController {

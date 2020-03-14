@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import art.main.database.Artist;
 import art.main.database.ArtistRepository;
-import art.main.database.ArtistService;
 import art.main.database.Client;
+import art.main.service.ArtistService;
 
 @Controller
 public class ArtistController {
