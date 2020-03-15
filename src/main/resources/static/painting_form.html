@@ -109,10 +109,10 @@
 						<div class="row">
 							<div class="col-lg-6 form-group">
 								<label>Title</label> <input name="title"
-									placeholder="Enter painting name"
+									placeholder="Enter painting name" pattern="^[a-zA-Z\s]*$"
 									class="common-input mb-20 form-control" type="text" required>
 								<label>Email</label> <input name="email"
-									placeholder="Enter autor email"
+									placeholder="Enter autor email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
 									class="common-input mb-20 form-control" type="text" required>
 								<label>Date</label> <input name="date"
 									placeholder="Enter the date"
@@ -125,22 +125,20 @@
 							<div class="col-lg-6 form-group">
 								<label>Height(cm)</label> <input name="height" min="0"
 									type='number' step='0.01' placeholder='Enter Height(cm) : 0.00'
-									class="common-input mb-20 form-control" required /> <label>Width(cm)</label>
+									class="common-input mb-20 form-control" required /> 
+								<label>Width(cm)</label>
 								<input name="width" min="0" type='number' step='0.01'
 									placeholder='Enter Width(cm) : 0.00'
-									class="common-input mb-20 form-control" required /> <label>Price
+									class="common-input mb-20 form-control" required /> 
+								<label>Price
 									(€)</label> <input name="price" min="0"
 									placeholder="Enter painting price"
-									onfocus="this.placeholder = ''"
-									onblur="this.placeholder = 'Enter painting price'"
 									class="common-input mb-20 form-control" type="number" required>
 							</div>
 							<div class="col-lg-12 form-group">
 								<label>Description</label>
 								<textarea class="common-textarea form-control" cols="150"
-									name="description" placeholder="Description"
-									onfocus="this.placeholder = ''"
-									onblur="this.placeholder = 'Description'" required></textarea>
+									name="description" placeholder="Description" required></textarea>
 								<input type="submit" class="primary-btn mt-20 float-right"
 									value="Add painting">
 							</div>

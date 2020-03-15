@@ -109,10 +109,10 @@
 						<div class="row">
 							<div class="col-lg-6 form-group">
 								<label>Name</label>
-								<input name="name" placeholder="Enter your name"
+								<input name="name" placeholder="Enter your name" pattern="^[a-zA-Z\s]*$"
 									class="common-input mb-20 form-control" type="text" required>
 								<label>Surname</label>
-								<input name="surname" placeholder="Enter your surname"
+								<input name="surname" placeholder="Enter your surname" pattern="^[a-zA-Z\s]*$"
 									class="common-input mb-20 form-control" type="text" required>
 								<label>NIF</label>
 								<input name="NIF" type="text" placeholder="DNI"
@@ -132,7 +132,7 @@
 									placeholder="Enter your address"
 									class="common-input mb-20 form-control" type="text" required>
 								<label>Phone Number</label>
-								<input name="phone" placeholder="Enter your phone"
+								<input name="phone" placeholder="Enter your phone" pattern=".{0}|.{7,12}"
 									class="common-input mb-20 form-control" type="text" required>
 								<input type="submit" class="primary-btn mt-3 float-right"
 									value="Add client">

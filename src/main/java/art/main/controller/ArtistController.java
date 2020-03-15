@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import art.main.database.Artist;
 import art.main.database.ArtistRepository;
+import art.main.database.Painting;
 import art.main.service.ArtistService;
 
 @Controller
@@ -38,6 +39,7 @@ public class ArtistController {
 	
 	@PostMapping("/added_artist")
 	public String newPainting(Artist artist) {
+		artist.setPaintings(new LinkedList<Painting>());
 		artistRepository.save(artist);
 		return "redirect:/artists";
 	}
@@ -47,7 +49,6 @@ public class ArtistController {
 		Artist artist = artistRepository.findById(id).get();
 		model.addAttribute("artist",artist);
 		return "artist_profile";
-
 	}
 	
 	@PostMapping("/artist_update/")
@@ -81,20 +82,20 @@ public class ArtistController {
 			sortedArtists = artistRepository.OrderBySurnameDesc();
 			model.addAttribute("option4", true);
 			break;
-		case "NifAsc":
-			sortedArtists = artistRepository.OrderByNIFAsc();
-			model.addAttribute("option5", true);
-			break;
 		case "NifDesc":
 			sortedArtists = artistRepository.OrderByNIFDesc();
-			model.addAttribute("option6", true);
+			model.addAttribute("option5", true);
 			break;
-		case "YearAsc":
-			sortedArtists = artistRepository.OrderByYearAsc();
-			model.addAttribute("option7", true);
+		case "NifAsc":
+			sortedArtists = artistRepository.OrderByNIFAsc();
+			model.addAttribute("option6", true);
 			break;
 		case "YearDesc":
 			sortedArtists = artistRepository.OrderByYearDesc();
+			model.addAttribute("option7", true);
+			break;
+		case "YearAsc":
+			sortedArtists = artistRepository.OrderByYearAsc();
 			model.addAttribute("option8", true);
 			break;
 		case "CountryAsc":

@@ -34,17 +34,16 @@ public class PaintingService {
 		}
 		
 		if (max_height != null) {
-			if (paintings.isEmpty()) {
+			if (paintings.isEmpty() && enter) {
 				enter = false;
 				paintings = paintingRepository.findByHeightLessThanEqual(max_height);
 			} else {
 				paintings.retainAll(paintingRepository.findByHeightLessThanEqual(max_height));			
-			}
-			
+			}			
 		}
 		
 		if (min_width != null) {
-			if (paintings.isEmpty()) {
+			if (paintings.isEmpty() && enter) {
 				enter = false;
 				paintings = paintingRepository.findByWidthGreaterThanEqual(min_width);
 			} else {
@@ -54,7 +53,7 @@ public class PaintingService {
 		}
 		
 		if (min_height != null) {
-			if (paintings.isEmpty()) {
+			if (paintings.isEmpty() && enter) {
 				enter = false;
 				paintings = paintingRepository.findByHeightGreaterThanEqual(min_height);
 			} else {
@@ -63,7 +62,7 @@ public class PaintingService {
 		}
 		
 		if (min_year != null) {
-			if (paintings.isEmpty()) {
+			if (paintings.isEmpty() && enter) {
 				enter = false;
 				paintings = paintingRepository.findByYearGreaterThanEqual(min_year);
 			} else {
@@ -72,7 +71,7 @@ public class PaintingService {
 		}
 		
 		if (max_year != null) {
-			if (paintings.isEmpty()) {
+			if (paintings.isEmpty() && enter) {
 				enter = false;
 				paintings = paintingRepository.findByYearLessThanEqual(max_year);
 			} else {
@@ -81,7 +80,7 @@ public class PaintingService {
 		}
 		
 		if (min_price != null) {
-			if (paintings.isEmpty()) {
+			if (paintings.isEmpty() && enter) {
 				enter = false;
 				paintings = paintingRepository.findByPriceGreaterThanEqual(min_price);
 			} else {
@@ -90,7 +89,7 @@ public class PaintingService {
 		}
 		
 		if (max_price != null) {
-			if (paintings.isEmpty()) {
+			if (paintings.isEmpty() && enter) {
 				enter = false;
 				paintings = paintingRepository.findByPriceLessThanEqual(max_price);
 			} else {

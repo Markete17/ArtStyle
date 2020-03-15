@@ -83,67 +83,117 @@
 		<div class="container">
 			<div class="menu-content pb-70 col-lg-15">
 				<div class="title text-center">
-					<h1 class="mb-10">Art clients</h1>
-					<p>Sorted by all clients</p>
+					<h1 class="mb-10" id="art_clients">Art clients</h1>
 				</div>
 			</div>
-			<div class="sorting w-25">
+			<p th:if="${default}" class="text-center">Sorted by all clients</p>
+			<p th:if="${option1}" class="text-center">Sorted by A to Z name</p>
+			<p th:if="${option2}" class="text-center">Sorted by Z to A name</p>
+			<p th:if="${option3}" class="text-center">Sorted by A to Z surname</p>
+			<p th:if="${option4}" class="text-center">Sorted by Z to A surname</p>
+			<p th:if="${option5}" class="text-center">Sorted by higher NIF</p>
+			<p th:if="${option6}" class="text-center">Sorted by lower NIF</p>
+			<p th:if="${option7}" class="text-center">Sorted by A to Z address</p>
+			<p th:if="${option8}" class="text-center">Sorted by Z to A address</p>
+			<p th:if="${option9}" class="text-center">Sorted by A to Z email</p>
+			<p th:if="${option10}" class="text-center">Sorted by Z to A email</p>
+			<p th:if="${option11}" class="text-center">Sorted by higher phone number</p>
+			<p th:if="${option12}" class="text-center">Sorted by lower phone number</p>
+			<div class="sorting w-25 mx-auto">
 				<form id="sort" action="/clientSortBy" method="post">
 					<select onchange="this.form.submit()" name="value"
 						class="custom-select">
-						<option value="Default">Orden predeterminado</option>
-						<option value="NameDesc">Nombre A-Z</option>
-						<option value="NameAsc">Nombre Z-A</option>
-						<option value="SurnameDesc">Apellido A-Z</option>
-						<option value="SurnameAsc">Apellido Z-A</option>
+						<option value="Default">Default Sort</option>
+						<option value="NameAsc" th:selected="${option1}">Name A - Z</option>
+						<option value="NameDesc" th:selected="${option2}">Name Z - A</option>
+						<option value="SurnameAsc" th:selected="${option3}">Surname A - Z</option>
+						<option value="SurnameDesc" th:selected="${option4}">Surname Z - A</option>
+						<option value="NifDesc" th:selected="${option5}">NIF Higher - Lower</option>
+						<option value="NifAsc" th:selected="${option6}">NIF Lower - Higher</option>
+						<option value="AddressAsc" th:selected="${option7}">Address A - Z</option>
+						<option value="AddressDesc" th:selected="${option8}">Address Z - A</option>
+						<option value="EmailAsc" th:selected="${option9}">Email A - Z</option>
+						<option value="EmailDesc" th:selected="${option10}">Email Z - A</option>
+						<option value="PhoneDesc" th:selected="${option11}">Phone number Higher - Lower</option>
+						<option value="PhoneAsc" th:selected="${option12}">Phone number Lower - Higher</option>
 					</select>
-					<!-- <option value="YearDesc">Año mayor - menor</option> -->
 				</form>
 			</div>
 			<br> <br>
 			<div class="card">
 				<div class="container">
-					<form id="filter" action="/filterClient" method="post">
-
-						<div class="common-filter">
-							<br>
-							<div class="head">Filtrar por:</div>
-							<br>
-							<div class="row">
-								<div class="col-sm">
-									Nombre<input class="form-control" type="text" id="name"
-										name="name" th:attr="value = ${name}">
+					<form id="filter" action="/filterClient#art_clients" method="post">
+						<br>
+						<div class="head">Fill the fields you see necessary</div>
+						<div class="row mx-auto w-50 my-4">
+							<div class="col-sm my-auto">
+								<div class="filter-list ">
+									Title Painting<input class="form-control" type="text" pattern="^[a-zA-Z\s]*$"
+										title="Only alphabetic characters"
+										id="painting" name="painting" th:attr="value = ${painting}">
+									<small  class="text-secondary">Search client by purchased painting</small>
 								</div>
-								<div class="col-sm">
-									Apellido<input class="form-control" type="text" id="surname"
-										name="surname" th:attr="value = ${surname}">
+							</div>						
+						</div>
+						<div class="row">
+							<div class="col-sm">
+								<div class="filter-list w-75">
+									Name<input class="form-control" type="text" pattern="^[a-zA-Z\s]*$"
+										title="Only alphabetic characters"
+										id="name" name="name" th:attr="value = ${name}">
+								</div>
+								<div class="filter-list mt-2 w-75">
+									Surname<input class="form-control" type="text" pattern="^[a-zA-Z\s]*$"
+										title="Only alphabetic characters"
+										id="surname" name="surname"
+										th:attr="value = ${surname}">
+								</div>
+							</div>
+							<div class="col-sm">
+								<div class="filter-list w-75">
+									NIF<input class="form-control" type="text" 
+										pattern="(([X-Z]{1})([-]?)(\d{7})([-]?)([A-Z]{1}))|((\d{8})([-]?)([A-Z]{1}))"
+										title="It must contain 8 numbers and a final character"
+										id="nif" name="nif" th:attr="value = ${nif}">
+								</div>
+								<div class="filter-list mt-2 w-75">
+									Address<input class="form-control" type="text"
+										id="address" name="address" th:attr="value = ${address}">
+								</div>
+							</div>
+							<div class="col-sm my-auto">
+								<div class="filter-list w-75">
+									Email<input class="form-control" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+										title="Insert a valid email"
+										id="email" name="email"
+										th:attr="value = ${email}">
+								</div>
+								<div class="filter-list mt-2 w-75">
+									Phone<input class="form-control" type="text"
+										id="phone" name="phone" th:attr="value = ${phone}">
 								</div>
 							</div>
 						</div>
 						<br>
-						<div class="common-filter">
-							<div class="head">Búsqueda</div>
-							<ul>
-								<li class="filter-list"><button type="submit"
-										class="add-painting primary-btn text-white" form="filter">Aplicar</button></li>
-							</ul>
+						<div class="common-filter mt-3">
+							<button type="submit" class="add-painting primary-btn"
+								form="filter">Search</button>
 						</div>
 						<br>
 					</form>
 				</div>
 			</div>
 			<div class="row mx-auto">
-				<div th:each="client: ${clients}"
-					class="col-lg-4 col-md-6 single-exhibition" th:id="'myForm' + ${client.id}">
-					<div class="thumb">
-						<img class="img-fluid" src="img/pages/ex1.jpg" alt="">
-					</div>
-					<a th:text="${client.name} +' '" href="#"><h4></h4></a><a href="#"
-						th:text="${client.surname}"></a>
-					<p th:text="${client.email}"></p>
-					<div class="meta-bottom d-flex justify-content-start">
-						<p th:text="${client.phone}" class="price"></p>
-					</div>
+				<div th:each="client: ${clients}" class="col-lg-4 col-md-6 single-exhibition mt-5" th:id="'myForm' + ${client.id}">
+					<h4 class="mb-3" th:text="${client.name} + ' ' + ${client.surname}"></h4>
+					<span class="font-weight-bold">NIF: </span><span th:text="${client.NIF}"></span><br>
+					<span class="font-weight-bold">Phone Number: </span><span th:text="${client.phone}"></span><br>
+					<span class="font-weight-bold">Email: </span><span th:text="${client.email}"></span><br>
+					<span class="font-weight-bold">Address: </span><span th:text="${client.address}"></span><br>
+					<h5 class="mt-3 mb-2 text-info font-weight-bold">Purchased paintings: </h5>
+					<ul class="unordered-list ml-3" th:each="painting: ${client.paintings}">
+						<li class="font-weight-bold"><a th:href="@{/paintings} + '#myForm' + ${painting.id}" th:text="${painting.title}"></a></li>	
+					</ul>
 					<a th:href="@{clients/(id=${client.id})}" type="submit"
 						class="genric-btn primary circle arrow large mt-3">Edit<span class="lnr lnr-arrow-right"></span></a>
 				</div>

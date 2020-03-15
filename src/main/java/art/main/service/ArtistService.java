@@ -19,6 +19,7 @@ public class ArtistService {
 			String address, String email, String phone) {
 		
 		List<Artist> artists = new LinkedList<>();
+		boolean enter = true;
 		
 		if (min_year != null && max_year != null && min_year > max_year) {
 			return new LinkedList<>();
@@ -30,15 +31,19 @@ public class ArtistService {
 		}
 		
 		if (!name.isEmpty() && !surname.isEmpty()) {
+			enter = false;
 			artists = artistRepository.findByNameAndSurnameIgnoreCase(name, surname);
 		} else if (!name.isEmpty()) {
+			enter = false;
 			artists = artistRepository.findByNameIgnoreCase(name);
 		} else if (!surname.isEmpty()) {
+			enter = false;
 			artists = artistRepository.findBySurnameIgnoreCase(surname);
 		}
 		
 		if (!nif.isEmpty()) {
-			if (artists.isEmpty()) {
+			if (artists.isEmpty() && enter) {
+				enter = false;
 				artists = artistRepository.findByNIF(nif);
 			} else {
 				artists.retainAll(artistRepository.findByNIF(nif));
@@ -46,7 +51,8 @@ public class ArtistService {
 		}
 		
 		if (!country.isEmpty()) {
-			if (artists.isEmpty()) {
+			if (artists.isEmpty() && enter) {
+				enter = false;
 				artists = artistRepository.findByCountryIgnoreCase(country);
 			} else {
 				artists.retainAll(artistRepository.findByCountryIgnoreCase(country));
@@ -54,7 +60,8 @@ public class ArtistService {
 		}
 		
 		if (min_year != null) {
-			if (artists.isEmpty()) {
+			if (artists.isEmpty() && enter) {
+				enter = false;
 				artists = artistRepository.findByYearGreaterThanEqual(min_year);
 			} else {
 				artists.retainAll(artistRepository.findByYearGreaterThanEqual(min_year));
@@ -62,7 +69,8 @@ public class ArtistService {
 		}
 		
 		if (max_year != null) {
-			if (artists.isEmpty()) {
+			if (artists.isEmpty() && enter) {
+				enter = false;
 				artists = artistRepository.findByYearLessThanEqual(max_year);
 			} else {
 				artists.retainAll(artistRepository.findByYearLessThanEqual(max_year));
@@ -70,7 +78,8 @@ public class ArtistService {
 		}
 		
 		if (!address.isEmpty()) {
-			if (artists.isEmpty()) {
+			if (artists.isEmpty() && enter) {
+				enter = false;
 				artists = artistRepository.findByAddressContainingIgnoreCase(address);
 			} else {
 				artists.retainAll(artistRepository.findByAddressContainingIgnoreCase(address));
@@ -78,7 +87,8 @@ public class ArtistService {
 		}
 		
 		if (!email.isEmpty()) {
-			if (email.isEmpty()) {
+			if (email.isEmpty() && enter) {
+				enter = false;
 				artists = artistRepository.findByEmailIgnoreCase(email);
 			} else {
 				artists.retainAll(artistRepository.findByEmailIgnoreCase(email));
@@ -86,7 +96,7 @@ public class ArtistService {
 		}
 		
 		if (!phone.isEmpty()) {
-			if (artists.isEmpty()) {
+			if (artists.isEmpty() && enter) {
 				artists = artistRepository.findByPhoneContainingIgnoreCase(phone);
 			} else {
 				artists.retainAll(artistRepository.findByPhoneContainingIgnoreCase(phone));

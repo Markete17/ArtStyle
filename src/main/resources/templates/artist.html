@@ -83,7 +83,7 @@
 		<div class="container">
 			<div class="menu-content pb-70 col-lg-15">
 				<div class="title text-center">
-					<h1 class="mb-10" id="art_posts">Artists</h1>
+					<h1 class="mb-10" id="art_artists">Art Artists</h1>
 				</div>
 			</div>
 			<p th:if="${default}" class="text-center">Sorted by all posts</p>
@@ -108,10 +108,10 @@
 						<option value="NameDesc" th:selected="${option2}">Name Z - A</option>
 						<option value="SurnameAsc" th:selected="${option3}">Surname A - Z</option>
 						<option value="SurnameDesc" th:selected="${option4}">Surname Z - A</option>
-						<option value="NifAsc" th:selected="${option5}">NIF Higher - Lower</option>
-						<option value="NifDesc" th:selected="${option6}">NIF Lower - Higher</option>
-						<option value="YearAsc" th:selected="${option7}">Year Higher - Lower</option>
-						<option value="YearDesc" th:selected="${option8}">Year Lower - Higher</option>
+						<option value="NifDesc" th:selected="${option5}">NIF Higher - Lower</option>
+						<option value="NifAsc" th:selected="${option6}">NIF Lower - Higher</option>
+						<option value="YearDesc" th:selected="${option7}">Year Higher - Lower</option>
+						<option value="YearAsc" th:selected="${option8}">Year Lower - Higher</option>
 						<option value="CountryAsc" th:selected="${option9}">Country A - Z</option>
 						<option value="CountryDesc" th:selected="${option10}">Country Z - A</option>
 						<option value="EmailAsc" th:selected="${option11}">Email A - Z</option>
@@ -123,19 +123,19 @@
 			<br> <br>
 			<div class="card">
 				<div class="container">
-					<form id="filter" action="/filterArtist#art_posts" method="post">
+					<form id="filter" action="/filterArtist#art_artists" method="post">
 						<br>
 						<div class="head">Fill the fields you see necessary</div>
 						<br>
 						<div class="row">
 							<div class="col-sm">
 								<div class="filter-list w-75">
-									Name<input class="form-control" type="text" pattern="^[a-zA-Z]*$"
+									Name<input class="form-control" type="text" pattern="^[a-zA-Z\s]*$"
 										title="Only alphabetic characters"
 										id="name" name="name" th:attr="value = ${name}">
 								</div>
 								<div class="filter-list mt-2 w-75">
-									Surname<input class="form-control" type="text" pattern="^[a-zA-Z]*$"
+									Surname<input class="form-control" type="text" pattern="^[a-zA-Z\s]*$"
 										title="Only alphabetic characters"
 										id="surname" name="surname"
 										th:attr="value = ${surname}">
@@ -149,7 +149,7 @@
 							</div>
 							<div class="col-sm">
 								<div class="filter-list w-75">
-									Birth Country<input class="form-control" type="text" pattern="^[a-zA-Z]*$"
+									Birth Country<input class="form-control" type="text" pattern="^[a-zA-Z\s]*$"
 										title="Only alphabetic characters"
 										id="country" name="country" th:attr="value = ${country}">
 								</div>

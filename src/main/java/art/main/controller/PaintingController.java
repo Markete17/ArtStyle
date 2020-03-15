@@ -42,7 +42,6 @@ public class PaintingController {
 	public String loadPaintings(Model model, HttpSession session) {
 		model.addAttribute("paintings", paintingRepository.findAll());
 		session.setAttribute("paintings", paintingRepository.findAll());
-		model.addAttribute("a", artistRepository);
 		model.addAttribute("default", true);
 
 		return "painting";

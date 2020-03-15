@@ -29,6 +29,6 @@ public interface PaintingRepository extends JpaRepository<Painting, Long>{
 	
 	List<Painting> findBySold(boolean sold);
 	
-	Artist findByAutor(String title);
+	List<Painting> findByTitleIgnoreCase(String title);
 
 }
