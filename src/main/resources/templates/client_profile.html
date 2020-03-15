@@ -74,29 +74,14 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-lg-4 d-flex flex-column address-wrap">
+							<h3 class="text-muted mb-3">Client Info</h3>
 							<div class="single-contact-address d-flex flex-row">
-								<div class="icon">
-									<span class="lnr lnr-home"></span>
-								</div>
 								<div class="contact-details">
-									<h5 th:text="${client.address}"></h5>
-								</div>
-							</div>
-							<div class="single-contact-address d-flex flex-row">
-								<div class="icon">
-									<span class="lnr lnr-phone-handset"></span>
-								</div>
-								<div class="contact-details">
-									<h5 th:text="${client.phone}"></h5>
-								</div>
-							</div>
-							<div class="single-contact-address d-flex flex-row">
-								<div class="icon">
-									<span class="lnr lnr-envelope"></span>
-								</div>
-								<div class="contact-details">
-									<h5 th:text="${client.email}"></h5>
-									<p>Send us your query anytime!</p>
+									<h5 th:text="${client.name} + ' ' + ${client.surname}"></h5>
+									<span class="font-weight-bold">NIF: </span><span th:text="${client.NIF}"></span><br>
+									<span class="font-weight-bold">Email: </span><span th:text="${client.email}"></span><br>
+									<span class="font-weight-bold">Address: </span><span th:text="${client.address}"></span><br>
+									<span class="font-weight-bold">Phone Number: </span><span th:text="${client.phone}"></span><br>
 								</div>
 							</div>														
 						</div>

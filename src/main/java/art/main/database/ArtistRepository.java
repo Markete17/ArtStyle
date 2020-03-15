@@ -27,15 +27,15 @@ public interface ArtistRepository extends JpaRepository<Artist, Long>{
 	List<Artist> OrderByEmailDesc();
 	
 	
-	List<Painting> findByNameAndSurnameIgnoreCase(String name, String surname);
-	List<Painting> findByNameIgnoreCase(String name);
-	List<Painting> findBySurnameIgnoreCase(String surname);
-	List<Painting> findByNIF(String nif);
-	List<Painting> findByCountryIgnoreCase(String country);
-	List<Painting> findByYearLessThanEqual(int year);
-	List<Painting> findByYearGreaterThanEqual(int year);
-	List<Painting> findByAddressContainingIgnoreCase(String address);
-	List<Painting> findByEmailIgnoreCase(String email);
-	List<Painting> findByPhoneContainingIgnoreCase(String phone);
+	List<Artist> findByNameAndSurnameIgnoreCase(String name, String surname);
+	List<Artist> findByNameIgnoreCase(String name);
+	List<Artist> findBySurnameIgnoreCase(String surname);
+	List<Artist> findByNIF(String nif);
+	List<Artist> findByCountryIgnoreCase(String country);
+	List<Artist> findByYearLessThanEqual(int year);
+	List<Artist> findByYearGreaterThanEqual(int year);
+	List<Artist> findByAddressContainingIgnoreCase(String address);
+	List<Artist> findByEmailIgnoreCase(String email);
+	List<Artist> findByPhoneContainingIgnoreCase(String phone);
 	
 }

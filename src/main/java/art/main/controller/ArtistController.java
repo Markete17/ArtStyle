@@ -98,7 +98,7 @@ public class ArtistController {
 			model.addAttribute("option8", true);
 			break;
 		case "CountryAsc":
-			sortedArtists = artistRepository.OrderByYearAsc();
+			sortedArtists = artistRepository.OrderByCountryAsc();
 			model.addAttribute("option9", true);
 			break;
 		case "CountryDesc":

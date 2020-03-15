@@ -132,9 +132,9 @@
 					</form>
 				</div>
 			</div>
-			<div class="row">
+			<div class="row mx-auto">
 				<div th:each="client: ${clients}"
-					class="col-lg-4 col-md-6 single-exhibition">
+					class="col-lg-4 col-md-6 single-exhibition" th:id="'myForm' + ${client.id}">
 					<div class="thumb">
 						<img class="img-fluid" src="img/pages/ex1.jpg" alt="">
 					</div>
@@ -145,7 +145,7 @@
 						<p th:text="${client.phone}" class="price"></p>
 					</div>
 					<a th:href="@{clients/(id=${client.id})}" type="submit"
-						class="primary-btn text-white" style="float: left">Edit</a>
+						class="genric-btn primary circle arrow large mt-3">Edit<span class="lnr lnr-arrow-right"></span></a>
 				</div>
 			</div>
 

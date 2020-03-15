@@ -191,22 +191,21 @@
 			</div>
 			<br>
 			<br>
-			<div class="row">
-				<div th:each="artist: ${artists}" class="col-lg-4 col-md-6 single-exhibition mt-5">
-					<a th:text="${artist.name} +' '" href="#"><h4></h4></a>
-					<a href="#" th:text="${artist.surname}"></a>
-					<p th:text="${artist.year} +' '" href="#">
-					<h4></h4>
-					</p>
-					<p href="#" th:text="${artist.country}"></p>
-					<p th:text="${artist.email}"></p>
-
-					<div class="meta-bottom d-flex justify-content-start">
-
-						<p th:text="${artist.phone}" class="price"></p>
-					</div>
+			<div class="row mx-auto">
+				<div th:each="artist: ${artists}" class="col-lg-4 col-md-6 single-exhibition mt-5" th:id="'myForm' + ${artist.id}">
+					<h4 class="mb-3" th:text="${artist.name} + ' ' + ${artist.surname}"></h4>
+					<span class="font-weight-bold">NIF: </span><span th:text="${artist.NIF}"></span><br>
+					<span class="font-weight-bold">Phone Number: </span><span th:text="${artist.phone}"></span><br>
+					<span class="font-weight-bold">Year Born: </span><span th:text="${artist.year}"></span><br>
+					<span class="font-weight-bold">Country Home: </span><span th:text="${artist.country}"></span><br>
+					<span class="font-weight-bold">Email: </span><span th:text="${artist.email}"></span><br>
+					<span class="font-weight-bold">Address: </span><span th:text="${artist.address}"></span><br>
+					<h5 class="mt-3 mb-2 text-info font-weight-bold">Paintings: </h5>
+					<ul class="unordered-list ml-3" th:each="painting: ${artist.paintings}">
+						<li class="font-weight-bold"><a th:href="@{/paintings} + '#myForm' + ${painting.id}" th:text="${painting.title}"></a></li>	
+					</ul>
 					<a th:href="@{artists/(id=${artist.id})}" type="submit"
-						class="primary-btn text-white" style="float: left">Edit</a>
+						class="genric-btn primary circle arrow large mt-3">Edit<span class="lnr lnr-arrow-right"></span></a>
 				</div>
 			</div>
 

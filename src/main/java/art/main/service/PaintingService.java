@@ -20,6 +20,7 @@ public class PaintingService {
 		List<Painting> paintings = new LinkedList<>();
 		boolean enter = true;
 		
+		//Procurar que no pueda poner min > max en cualquier campo
 		if ( (min_width != null && max_width != null && min_width > max_width) 
 				|| (min_height != null && max_height != null && min_height > max_height) 
 				|| (min_year != null && max_year != null && min_year > max_year) 

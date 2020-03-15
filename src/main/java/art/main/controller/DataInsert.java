@@ -28,29 +28,29 @@ public class DataInsert implements CommandLineRunner {
 		 * country, String address, String email, String phone) {
 		 */
 		Artist a0 = new Artist("Jose", "Perez", "22222222J", 1972, "Ecuador", "Calle Ledesma, 20, 4.º bis",
-				"perez@outlook.com", "684574");
+				"perez@outlook.com", "684574364");
 		Artist a1 = new Artist("Vincent", "Van Goh", "58954754P", 1980, "Netherlands", "C/ Florida, 19, 3.º  izda.",
-				"vangoh@outlook.com", "684574");
+				"vangoh@outlook.com", "485902841");
 		Artist a2 = new Artist("Rosa", "Rodriguez", "579455454X", 1993, "Spain", "Manuel Iradier, 7, 3.º, dpto. 2", "rose@outlook.com",
-				"778574654");
+				"772539541");
 		Artist a3 = new Artist("Steven", "Nielsen", "6854754A", 1975, "Germany", "Av. Gasteiz, 10, 2.º A", "steven@outlook.com",
-				"654275454");
+				"479275713");
 		Artist a4 = new Artist("Pierre", "Diarra", "55876652P", 1985, "France", "Ctra. Gasteiz-Irun, km 5", "oueri@outlook.com",
-				"7788564");
-		Artist a5 = new Artist("Walker", "Diana", "75454555", 1985, "England", "Plaza Vicente Goikoetxea, 1, 1.º, 1.ª ofic.", "dwalker@outlook.com",
-				"4457878864");
+				"333058617");
+		Artist a5 = new Artist("Walker", "Diana", "75454555Z", 1985, "England", "Plaza Vicente Goikoetxea, 1, 1.º, 1.ª ofic.", "dwalker@outlook.com",
+				"389120465");
 
 		/**
 		 * public Client(String name, String surname, String nIF, String address, String
 		 * email, String phone) {
 		 */
-		Client c0 = new Client("Fernando", "Lopez", "11111111H", "Plza. Constitución, 3, ático 9", "fl@gmail.com", "66878754");
-		Client c1 = new Client("Marcos", "Ruiz", "656556554A", "Avda Valencia 25", "mr@gmail.com", "66878754");
-		Client c2 = new Client("Jose Luis", "Sierra", "25655554X", "Calle Higuereta, 4, 7.º B", "jose@gmail.com", "7874754");
-		Client c3 = new Client("Enrique", "Maji", "99554564B", "Desarrollos Industriales, S. A.", "maji@gmail.com", "6247789");
-		Client c4 = new Client("Daniel", "Ruiz", "9631566554E", "7.º B, 69521 Rota,", "delegado@gmail.com", "668732345");
+		Client c0 = new Client("Fernando", "Lopez", "11111111H", "Plza. Constitución, 3, ático 9", "fl@gmail.com", "275893471");
+		Client c1 = new Client("Marcos", "Ruiz", "656556554A", "Avda Valencia 25", "mr@gmail.com", "493785291");
+		Client c2 = new Client("Jose Luis", "Sierra", "25655554X", "Calle Higuereta, 4, 7.º B", "jose@gmail.com", "267490314");
+		Client c3 = new Client("Enrique", "Maji", "99554564B", "Desarrollos Industriales, S. A.", "maji@gmail.com", "250859757");
+		Client c4 = new Client("Daniel", "Ruiz", "9631566554E", "7.º B, 69521 Rota,", "delegado@gmail.com", "266806943");
 		Client c5 = new Client("Diego", "Montoto", "65658866554G", "Polígono Industrial Tizona", "diego@gmail.com",
-				"62424478621");
+				"787267398");
 
 		/**
 		 * public Painting(String title, int year, float height, float width, int price)
