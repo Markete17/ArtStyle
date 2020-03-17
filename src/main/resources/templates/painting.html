@@ -126,22 +126,22 @@
 								<div class="head mb-2 font-weight-bold">Max Size</div>
 								<div class="filter-list w-75">
 									Max Width<input class="form-control" type="number" min="0"
-										id="max_width" name="max_width" th:attr="value = ${max_width}">
+										step='0.01' id="max_width" name="max_width" th:attr="value = ${max_width}">
 								</div>
 								<div class="filter-list mt-2 w-75">
 									Max Height<input class="form-control" type="number" min="0"
-										id="max_height" name="max_height"
+										step='0.01' id="max_height" name="max_height"
 										th:attr="value = ${max_height}">
 								</div>
 							</div>
 							<div class="col-sm">
 								<div class="head mb-2 font-weight-bold">Min Size</div>
 								<div class="filter-list w-75">
-									Min Width<input class="form-control" type="number" min="0"
+									Min Width<input class="form-control" type="number" min="0" step='0.01'
 										id="min_width" name="min_width" th:attr="value = ${min_width}">
 								</div>
 								<div class="filter-list mt-2 w-75">
-									Min Height<input class="form-control" type="number" min="0"
+									Min Height<input class="form-control" type="number" min="0" step='0.01'
 										id="min_height" name="min_height"
 										th:attr="value = ${min_height}">
 								</div>

@@ -90,20 +90,27 @@
 								<div class="row">	
 									<div class="col-lg-6 form-group">
 										<label>Name</label>
-										<input name="name" class="common-input mb-20 form-control" th:attr="value = ${client.name}" required="" type="text">
+										<input name="name" class="common-input mb-20 form-control" title="Only alphabetic characters"
+											pattern="^[a-zA-Z\s]*$" th:attr="value = ${client.name}" required type="text">
 										<label>Email</label>
-										<input name="email" th:attr="value = ${client.email}" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" class="common-input mb-20 form-control" required="" type="email">
+										<input name="email" title="Enter a valid email" 
+											th:attr="value = ${client.email}" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" class="common-input mb-20 form-control" required type="email">
 										<label>NIF</label>
-										<input name="NIF" class="common-input mb-20 form-control" th:attr="value = ${client.NIF}" required="" type="text">
+										<input name="NIF" class="common-input mb-20 form-control" 
+										pattern="(([X-Z]{1})([-]?)(\d{7})([-]?)([A-Z]{1}))|((\d{8})([-]?)([A-Z]{1}))"
+										title="It must contain 8 numbers and a final character"										
+										th:attr="value = ${client.NIF}" required type="text">
 										<div class="mt-20 alert-msg" style="text-align: left;"></div>
 									</div>
 									<div class="col-lg-6 form-group">
 									<label>Surname</label>
-									<input name="surname" class="common-input mb-20 form-control" th:attr="value = ${client.surname}" required="" type="text">
+									<input name="surname" class="common-input mb-20 form-control" title="Only alphabetic characters"
+										pattern="^[a-zA-Z\s]*$" th:attr="value = ${client.surname}" required type="text">
 									<label>Address</label>
-									<input name="address" th:attr="value = ${client.address}" class="common-input mb-20 form-control" required="" type="text">	
+									<input name="address" th:attr="value = ${client.address}" class="common-input mb-20 form-control" required type="text">	
 									<label>Phone</label>
-									<input name="phone" th:attr="value = ${client.phone}" class="common-input mb-20 form-control" required="" type="text">
+									<input name="phone" th:attr="value = ${client.phone}" class="common-input mb-20 form-control" pattern="[0-9]{7,12}"
+									title="Enter a valid phone number" required type="text">
 									<input type="submit" class="primary-btn mt-20 text-white" value="Edit client" style="float: right">									
 									</div>
 								</div>

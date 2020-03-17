@@ -84,7 +84,9 @@ public class ClientService {
 			List<Client> auxClients = new LinkedList<Client>();
 			
 			for (Painting p : clientPainting) {
-				auxClients.add(p.getClient());
+				if (p.getClient() != null) {
+						auxClients.add(p.getClient());
+				}
 			}
 			
 			if (clients.isEmpty() && enter) {

@@ -175,7 +175,8 @@
 										th:attr="value = ${email}">
 								</div>
 								<div class="filter-list mt-2 w-75">
-									Phone<input class="form-control" type="text" pattern=".{0}|.{7,10}"
+									Phone<input class="form-control" type="text" pattern="[0-9]{7,12}"
+									title="Enter a valid phone number"
 										id="phone" name="phone" th:attr="value = ${phone}">
 								</div>
 							</div>
