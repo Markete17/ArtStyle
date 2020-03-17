@@ -67,7 +67,7 @@ public class DataInsert implements CommandLineRunner {
 		
 		Painting p0 = new Painting("Laurales", "Sobre un fondo de paisaje vaporoso, donde se resalta la figura de esta mujer," +
 				" cuya enigmática sonrisa constituye lo más atractivo del cuadro, consiguió su más alta aspiración: plasmar el" +
-				"alma humana.", 1990, 26.88, 30.52, 120);
+				"alma humana.", 2007, 26.88, 30.52, 3000);
 		p0.setDate(d0);
 		p0.setSold(true);
 		c0.getPaintings().add(p0);
