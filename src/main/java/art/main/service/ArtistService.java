@@ -87,7 +87,7 @@ public class ArtistService {
 		}
 		
 		if (!email.isEmpty()) {
-			if (email.isEmpty() && enter) {
+			if (artists.isEmpty() && enter) {
 				enter = false;
 				artists = artistRepository.findByEmailIgnoreCase(email);
 			} else {

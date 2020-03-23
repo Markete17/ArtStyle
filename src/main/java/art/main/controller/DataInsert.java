@@ -31,9 +31,9 @@ public class DataInsert implements CommandLineRunner {
 				"perez@outlook.com", "684574364");
 		Artist a1 = new Artist("Vincent", "Van Goh", "58954754P", 1980, "Netherlands", "C/ Florida, 19, 3.º  izda.",
 				"vangoh@outlook.com", "485902841");
-		Artist a2 = new Artist("Rosa", "Rodriguez", "579455454X", 1993, "Spain", "Manuel Iradier, 7, 3.º, dpto. 2", "rose@outlook.com",
+		Artist a2 = new Artist("Rosa", "Rodriguez", "57945545X", 1993, "Spain", "Manuel Iradier, 7, 3.º, dpto. 2", "rose@outlook.com",
 				"772539541");
-		Artist a3 = new Artist("Steven", "Nielsen", "6854754A", 1975, "Germany", "Av. Gasteiz, 10, 2.º A", "steven@outlook.com",
+		Artist a3 = new Artist("Steven", "Nielsen", "26854754A", 1975, "Germany", "Av. Gasteiz, 10, 2.º A", "steven@outlook.com",
 				"479275713");
 		Artist a4 = new Artist("Pierre", "Diarra", "55876652P", 1985, "France", "Ctra. Gasteiz-Irun, km 5", "oueri@outlook.com",
 				"333058617");
@@ -45,11 +45,11 @@ public class DataInsert implements CommandLineRunner {
 		 * email, String phone) {
 		 */
 		Client c0 = new Client("Fernando", "Lopez", "11111111H", "Plza. Constitución, 3, ático 9", "fl@gmail.com", "275893471");
-		Client c1 = new Client("Marcos", "Ruiz", "656556554A", "Avda Valencia 25", "mr@gmail.com", "493785291");
+		Client c1 = new Client("Marcos", "Ruiz", "56556554A", "Avda Valencia 25", "mr@gmail.com", "493785291");
 		Client c2 = new Client("Jose Luis", "Sierra", "25655554X", "Calle Higuereta, 4, 7.º B", "jose@gmail.com", "267490314");
 		Client c3 = new Client("Enrique", "Maji", "99554564B", "Desarrollos Industriales, S. A.", "maji@gmail.com", "250859757");
-		Client c4 = new Client("Daniel", "Ruiz", "9631566554E", "7.º B, 69521 Rota,", "delegado@gmail.com", "266806943");
-		Client c5 = new Client("Diego", "Montoto", "65658866554G", "Polígono Industrial Tizona", "diego@gmail.com",
+		Client c4 = new Client("Daniel", "Ruiz", "96315665E", "7.º B, 69521 Rota,", "delegado@gmail.com", "266806943");
+		Client c5 = new Client("Diego", "Montoto", "58866554G", "Polígono Industrial Tizona", "diego@gmail.com",
 				"787267398");
 
 		/**

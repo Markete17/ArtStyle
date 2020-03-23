@@ -62,7 +62,7 @@ public class ClientService {
 		}
 		
 		if (!email.isEmpty()) {
-			if (email.isEmpty() && enter) {
+			if (clients.isEmpty() && enter) {
 				enter = false;
 				clients = clientRepository.findByEmailIgnoreCase(email);
 			} else {
