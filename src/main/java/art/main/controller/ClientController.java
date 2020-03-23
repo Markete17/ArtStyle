@@ -159,6 +159,8 @@ public class ClientController {
 		model.addAttribute("phone", phone);
 		session.setAttribute("phone", phone);
 		
+		model.addAttribute("default", true);
+		
 		List<Client> clients = this.clientService.filterBy(name, surname, nif, address, email, phone, painting);
 		
 		model.addAttribute("clients", clients);

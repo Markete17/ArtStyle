@@ -167,6 +167,8 @@ public class ArtistController {
 		model.addAttribute("phone", phone);
 		session.setAttribute("phone", phone);
 		
+		model.addAttribute("default", true);
+		
 		List<Artist> artists = this.artistService.filterBy(name, surname, nif, country, min_year, max_year, 
 				address, email, phone);
 		
