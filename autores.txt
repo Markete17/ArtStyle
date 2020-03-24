@@ -1,0 +1,17 @@
+Nombre    |    Apellidos    |    DNI    |
+----------------------------------------|
+Jose Luis |  Sierra Benito  | 06005586X | 
+Marcos    |  Ruiz Muñoz     | 
+Daniel    |  Ruiz Bustos    |
+Enrique   | Márquez Jiménez |
+----------------------------------------|
+
+Participación:
+
+Jose Luis Sierra Benito ->
+
+Marcos Ruiz Muñoz ->
+
+Daniel Ruiz Bustos ->
+
+Enrique Márquez Jñimenez ->
