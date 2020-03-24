@@ -8,10 +8,10 @@ Enrique   | Márquez Jiménez |
 
 Participación:
 
-Jose Luis Sierra Benito ->
+Jose Luis Sierra Benito -> Ser de este grupo el que mas copas tiene en clash royale, ser el que mejor juega en otras palabras.
 
 Marcos Ruiz Muñoz ->
 
 Daniel Ruiz Bustos -> Escoger la plantilla a utilizar en la pagina web. Modificar junto a Marcos los html y css de la plantilla a utilizar en la pagina web para escoger solo las paginas necesarias y adaptarlas a las opciones que utilizariamos. Retocar y mejorar haciendo uso de css y bootstrap la apariencia y la estetica de todas las paginas que componen la aplicacion.
 
-Enrique Márquez Jñimenez ->
+Enrique Márquez Jiménez ->
