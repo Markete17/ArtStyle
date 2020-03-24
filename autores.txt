@@ -2,7 +2,7 @@ Nombre    |    Apellidos    |    DNI    |
 ----------------------------------------|
 Jose Luis |  Sierra Benito  | 06005586X | 
 Marcos    |  Ruiz Muñoz     | 
-Daniel    |  Ruiz Bustos    |
+Daniel    |  Ruiz Bustos    | 51232209P |
 Enrique   | Márquez Jiménez |
 ----------------------------------------|
 
@@ -12,6 +12,6 @@ Jose Luis Sierra Benito ->
 
 Marcos Ruiz Muñoz ->
 
-Daniel Ruiz Bustos ->
+Daniel Ruiz Bustos -> Escoger la plantilla a utilizar en la pagina web. Modificar junto a Marcos los html y css de la plantilla a utilizar en la pagina web para escoger solo las paginas necesarias y adaptarlas a las opciones que utilizariamos. Retocar y mejorar haciendo uso de css y bootstrap la apariencia y la estetica de todas las paginas que componen la aplicacion.
 
 Enrique Márquez Jñimenez ->
