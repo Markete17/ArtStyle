@@ -1,7 +1,7 @@
 # ArtStyle
 Práctica 1 de Sistemas Distribuidos URJC
 
-##Realizada por: 
+## Realizada por: 
 Jose Luis Sierra Benito
 Marcos Ruiz Muñoz
 Daniel Ruiz Bustos
