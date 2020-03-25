@@ -1,17 +1,17 @@
 Nombre    |    Apellidos    |    DNI    |
 ----------------------------------------|
 Jose Luis |  Sierra Benito  | 06005586X | 
-Marcos    |  Ruiz Muñoz     | 
+Marcos    |  Ruiz Muñoz     | 53904671P
 Daniel    |  Ruiz Bustos    | 51232209P |
 Enrique   | Márquez Jiménez |
 ----------------------------------------|
 
 Participación:
 
-Jose Luis Sierra Benito -> Ser de este grupo el que mas copas tiene en clash royale, ser el que mejor juega en otras palabras.
+Jose Luis Sierra Benito -> Esposo de Ana Pradera.
 
-Marcos Ruiz Muñoz ->
+Marcos Ruiz Muñoz -> Realizada la plantilla Boostrap, crear e inicializar con datos la Base de Datos H2 y realizar la página de los formularios de las entidades de la base de datos para que puedan ser editadas.
 
 Daniel Ruiz Bustos -> Escoger la plantilla a utilizar en la pagina web. Modificar junto a Marcos los html y css de la plantilla a utilizar en la pagina web para escoger solo las paginas necesarias y adaptarlas a las opciones que utilizariamos. Retocar y mejorar haciendo uso de css y bootstrap la apariencia y la estetica de todas las paginas que componen la aplicacion.
 
-Enrique Márquez Jiménez ->
+Enrique Márquez Jiménez -> El más malo de Clash Royale, esposo de Maria Cristina Ramos y encima es andaluz. Lo tiene todo.
