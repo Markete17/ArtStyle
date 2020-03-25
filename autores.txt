@@ -3,7 +3,7 @@ Nombre    |    Apellidos    |    DNI    |
 Jose Luis |  Sierra Benito  | 06005586X | 
 Marcos    |  Ruiz Muñoz     | 53904671P |
 Daniel    |  Ruiz Bustos    | 51232209P |
-Enrique   | Márquez Jiménez |           |
+Enrique   | Márquez Jiménez | 49086826L |
 ----------------------------------------|
 
 Participación:
