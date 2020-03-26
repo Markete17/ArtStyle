@@ -8,14 +8,14 @@ Enrique   | Márquez Jiménez | 49086826L |
 
 Participación:
 
-Jose Luis Sierra Benito -> La estética de la página index y las páginas que muestran los distintos elementos de la base de datos (cuadros, pintores y clientes).
-Realización del backend de la página (Controllers y Services), y completar criterios de búsqueda y ordenación.
+Jose Luis Sierra Benito -> Ha realizado el controller y service de los cuadros, así como, su entidad y repositorio. 
+Además, ha hecho la página web tanto de mostrar los cuadros como para poder editarlos.
 
-Marcos Ruiz Muñoz -> Ayudar en la realización de la base de las páginas html, crear e inicializar con datos la Base de Datos H2 
-y realizar la página de los formularios de las entidades de la base de datos para que puedan ser editadas (frontend).
+Marcos Ruiz Muñoz -> Ha realizado el controller y service de los autores/artistas, así como, su entidad y repositorio.
+También, ha hecho la página web tanto de mostrar los autores como para poder editarlos.
 
-Daniel Ruiz Bustos -> Hacer la base de los html, mejorar la estética de los criterios de búsqueda/consulta y ordenación. 
-Realización de las páginas que muestran las distintas entidades de la base de datos (frontend), y los formularios para crear 
-las distintas entidades.
+Daniel Ruiz Bustos -> Ha realizado el controller y service de los clientes, así como, su entidad y repositorio.
+También, ha hecho la página web tanto de mostrar los clientes como para poder editarlos.
 
-Enrique Márquez Jiménez -> Realización en html de los criterios de búsqueda y ordenación, y backend de la aplicación (controllers).
+Enrique Márquez Jiménez -> Ha ayudado a otros miembros en la realización de los controllers y services. A su vez, ha
+hecho la página de index como las páginas de creación de las distintas entidades de la base de datos. 
