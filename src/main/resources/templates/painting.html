@@ -217,16 +217,16 @@
 					<span> in </span>
 					<span th:text="${painting.year}" class="text-primary"></span>
 					<div th:if="${painting.sold}" class="mb-3 mt-2">
-						<span type="button" class="font-weight-bold">Sold</span>
+						<span class="font-weight-bold">Sold</span>
 						<span> on </span>
 						<span th:text="${painting.date}" class="date text-primary"></span>
 						<span> to </span>
 						<a th:href="@{/clients} + '#myForm' + ${painting.client.id}" th:text="${painting.client.name}" class="text-danger"></a>
 					</div>
-					<div th:unless="${painting.sold}" class="my-3 text-center">
+					<div th:unless="${painting.sold}" class="my-3 w-75 text-center">
 						<form th:action="@{/paintings/sold/(id=${painting.id})} + '#myForm' + ${painting.id}" method="post" class="needs-validation">
 							<small th:if="${not_found == true and id_painting == painting.id}" class="text-danger">Client not found!</small>
-							<div class="form-group flex">
+							<div class="form-group flex ">
 								<input type="submit" class="btn btn-info rounded-0" value="Not sold">
 								<input name="nif" placeholder="Client NIF" class="common-input form-control rounded-0" 
 									type="text" pattern="(([X-Z]{1})([-]?)(\d{7})([-]?)([A-Z]{1}))|((\d{8})([-]?)([A-Z]{1}))"
