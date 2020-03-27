@@ -30,15 +30,17 @@ public class ArtistService {
 			return artistRepository.findAll();
 		}
 		
-		if (!name.isEmpty() && !surname.isEmpty()) {
-			enter = false;
-			artists = artistRepository.findByNameAndSurnameIgnoreCase(name, surname);
-		} else if (!name.isEmpty()) {
+		if (!name.isEmpty()) {
 			enter = false;
 			artists = artistRepository.findByNameIgnoreCase(name);
-		} else if (!surname.isEmpty()) {
-			enter = false;
-			artists = artistRepository.findBySurnameIgnoreCase(surname);
+		}  
+		if (!surname.isEmpty()) {
+			if (artists.isEmpty() && enter) {
+				enter = false;
+				artists = artistRepository.findBySurnameIgnoreCase(surname);
+			} else {
+				artists.retainAll(artistRepository.findBySurnameIgnoreCase(surname));
+			}
 		}
 		
 		if (!nif.isEmpty()) {

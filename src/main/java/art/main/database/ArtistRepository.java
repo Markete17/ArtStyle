@@ -27,7 +27,6 @@ public interface ArtistRepository extends JpaRepository<Artist, Long>{
 	List<Artist> OrderByEmailDesc();
 	
 	
-	List<Artist> findByNameAndSurnameIgnoreCase(String name, String surname);
 	List<Artist> findByNameIgnoreCase(String name);
 	List<Artist> findBySurnameIgnoreCase(String surname);
 	List<Artist> findByNIF(String nif);

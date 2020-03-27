@@ -25,7 +25,6 @@ public interface ClientRepository extends JpaRepository<Client, Long> {
 	List<Client> OrderByPhoneDesc();
 	
 	
-	List<Client> findByNameAndSurnameIgnoreCase(String name, String surname);
 	List<Client> findByNameIgnoreCase(String name);
 	List<Client> findBySurnameIgnoreCase(String surname);
 	Client findByNIF(String nif);

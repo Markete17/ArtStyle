@@ -30,15 +30,17 @@ public class ClientService {
 			return clientRepository.findAll();
 		}
 		
-		if (!name.isEmpty() && !surname.isEmpty()) {
-			enter = false;
-			clients = clientRepository.findByNameAndSurnameIgnoreCase(name, surname);
-		} else if (!name.isEmpty()) {
+		if (!name.isEmpty()) {
 			enter = false;
 			clients = clientRepository.findByNameIgnoreCase(name);
-		} else if (!surname.isEmpty()) {
-			enter = false;
-			clients = clientRepository.findBySurnameIgnoreCase(surname);
+		} 
+		if (!surname.isEmpty()) {
+			if (clients.isEmpty() && enter) {
+				enter = false;
+				clients = clientRepository.findBySurnameIgnoreCase(surname);
+			} else {
+				clients.retainAll(clientRepository.findBySurnameIgnoreCase(surname));
+			}
 		}
 		
 		if (!nif.isEmpty()) {
