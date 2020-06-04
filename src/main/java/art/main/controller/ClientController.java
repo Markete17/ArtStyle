@@ -41,7 +41,7 @@ public class ClientController {
 	public String newPainting(Client client) {
 		client.setPaintings(new LinkedList<Painting>());
 		clientRepository.save(client);
-		return "redirect:/artists";
+		return "redirect:/clients";
 	}	
 	
 	@GetMapping("/clients/")
